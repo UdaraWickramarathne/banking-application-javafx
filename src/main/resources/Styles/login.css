@@ -1,0 +1,11 @@
+.login-container {
+    -fx-background-color: #FFFFFF;
+}
+
+.login-logo-container{
+    -fx-background-color: #EEEEEE;
+}
+
+.login-logo-container FontAwesomeIconView {
+    -fx-fill: #ECF39E;
+}
