@@ -2,7 +2,7 @@ Text {
     -fx-font-family: 'Poppins';
 }
 .login-container {
-    -fx-background-color: #343A40;
+    -fx-background-color: #121212;
 }
 
 /*Logo container styles*/
@@ -11,31 +11,37 @@ Text {
     -fx-alignment: center;
 }
 .login-logo-container Text {
-    -fx-font-size: 2em;
+    -fx-font-size: 1.1em;
     -fx-fill: #FFFFFF;
+    -fx-font-weight: 900;
+}
+.login-logo-container Label {
+    -fx-text-fill: #FFFFFF;
 }
 
-.login-logo-container FontAwesomeIconView {
-    -fx-fill: #FFFFFF;
+.contact-us {
+    -fx-alignment: center;
 }
 
 /* Login form styles */
 .login-form-container {
-    -fx-background-color: #495057;
+    -fx-background-color: #121212;
     -fx-background-radius: 20;
     -fx-alignment: center;
-    -fx-padding: 0 80 0 80;
+    -fx-padding: 0 50 0 50;
     -fx-spacing: 30;
 }
 
 .login-form-container Text {
     -fx-fill: #FFFFFF;
+    -fx-font-family: 'Poppins';
     -fx-font-size: 2em;
     -fx-spacing: 0 0 50 0;
 }
 
 .input-field {
     -fx-background-color: transparent;
+    -fx-font-family: 'Poppins';
     -fx-pref-height: 35;
     -fx-font-size: 1.2em;
     -fx-border-color: transparent transparent white transparent;
@@ -44,6 +50,7 @@ Text {
 }
 
 .login-form-container CheckBox {
+    -fx-font-family: 'Poppins';
     -fx-text-fill: #FFFFFF;
 }
 
@@ -78,7 +85,7 @@ Text {
     -fx-spacing: 10;
 }
 .login-forget-pane Label{
-    -fx-text-fill: #001933;
+    -fx-text-fill: #ffffff;
     -fx-underline: true;
 }
 .login-forget-pane Label:hover{
@@ -87,8 +94,10 @@ Text {
 }
 
 .login-form-container Button {
+    -fx-font-family: 'Poppins';
     -fx-font-size: 1.3em;
     -fx-background-color: #001933;
+    -fx-font-weight: bold;
     -fx-text-fill: #FFFFFF;
     -fx-pref-width: 150;
     -fx-background-insets: 0, 1;

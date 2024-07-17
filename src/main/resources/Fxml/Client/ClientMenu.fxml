@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main-menu-container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <AnchorPane prefHeight="750.0" prefWidth="182.0" styleClass="left-container">
+      <VBox alignment="TOP_CENTER" prefHeight="180.0" prefWidth="180.0" styleClass="title-container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <ImageView fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../Images/logo.png" />
+         </ImageView>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" layoutY="207.0" prefHeight="319.0" prefWidth="182.0" styleClass="menu-container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
+         <Button mnemonicParsing="false" text="   Dashboard">
+            <graphic>
+               <FontAwesomeIconView glyphName="HOME" size="20" />
+            </graphic>
+         </Button>
+         <Button mnemonicParsing="false" text="  Transaction">
+            <graphic>
+               <FontAwesomeIconView glyphName="HANDSHAKE_ALT" size="20" />
+            </graphic>
+         </Button>
+         <Button mnemonicParsing="false" text="   Accounts    ">
+            <graphic>
+               <FontAwesomeIconView glyphName="ADDRESS_BOOK_ALT" size="20" text="" />
+            </graphic>
+         </Button>
+         <Line endX="180.0" stroke="#000f1f" strokeWidth="2.0" />
+         <Button mnemonicParsing="false" styleClass="alt-menu-btn" text="    Profile        ">
+            <graphic>
+               <FontAwesomeIconView glyphName="USER" size="20" />
+            </graphic>
+         </Button>
+         <Button mnemonicParsing="false" styleClass="alt-menu-btn" text="   Logout       ">
+            <graphic>
+               <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20" text="" />
+            </graphic>
+         </Button>
+      </VBox>
+      <VBox layoutX="15.2" layoutY="556.0" prefHeight="160.0" prefWidth="173.0" styleClass="report-container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Report Bug?" />
+         <TextArea prefHeight="76.0" prefWidth="130.0" />
+         <Button mnemonicParsing="false" text="Report" />
+      </VBox>
+   </AnchorPane>
+</VBox>

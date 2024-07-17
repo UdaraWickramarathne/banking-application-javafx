@@ -1,0 +1,95 @@
+
+.main-menu-container{
+    -fx-background-color: #001933;
+    -fx-alignment: center;
+    -fx-font-family: 'Poppins';
+}
+
+.left-container {
+    --fxbackground-color: #003f7e;
+    -fx-background-radius: 10;
+    -fx-font-family: 'Poppins';
+}
+
+
+/*Title logo section*/
+.title-container {
+    -fx-padding: 10;
+    -fx-font-family: 'Poppins';
+}
+
+/*Navigation section*/
+
+.menu-container {
+    -fx-padding: 10;
+    -fx-spacing: 20;
+    -fx-alignment: center;
+    -fx-font-family: 'Poppins';
+}
+
+.menu-container Button {
+    -fx-pref-width: 150;
+    -fx-pref-height: 40;
+    -fx-background-color: #4d5e70;
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
+    -fx-font-size: 1.1em;
+    -fx-font-family: 'Poppins';
+}
+
+.menu-container Button:hover{
+    -fx-cursor: hand;
+}
+.menu-container Button FontAwesomeIconView{
+    -fx-fill: #000000;
+    -fx-alignment: left;
+}
+
+.alt-menu-btn {
+    -fx-pref-width: 150;
+    -fx-pref-height: 40;
+    -fx-background-color: #1a3047;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.1em;
+    -fx-alignment: center;
+    -fx-font-family: 'Poppins';
+}
+
+.alt-menu-btn FontAwesomeIconView {
+    -fx-fill: #FFFFFF;
+}
+
+/*report bug*/
+
+.report-container {
+    -fx-alignment: left;
+    -fx-font-family: 'Poppins';
+    -fx-spacing: 10;
+    -fx-padding: 10 0 10 0;
+}
+
+.report-container Text {
+    -fx-font-weight: bold;
+    -fx-font-family: 'Poppins';
+    -fx-fill: #ffffff;
+}
+
+.report-container TextArea {
+    -fx-control-inner-background: #4d5e70;
+    -fx-background-color: #4d5e70;
+    -fx-text-fill: #FFFFFF;
+    -fx-fill: #FFFFFF;
+    -fx-font-family: 'Poppins';
+    -fx-prompt-text-fill: #FFFFFF;
+}
+
+.report-container Button{
+    -fx-pref-width: 80;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #292b60;
+    -fx-font-family: 'Poppins';
+}
+
+.report-container Button:hover {
+    -fx-cursor: hand;
+}
