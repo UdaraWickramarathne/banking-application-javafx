@@ -1,11 +1,109 @@
+Text {
+    -fx-font-family: 'Poppins';
+}
 .login-container {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #343A40;
 }
 
+/*Logo container styles*/
 .login-logo-container{
-    -fx-background-color: #EEEEEE;
+    -fx-background-color: #001933;
+    -fx-alignment: center;
+}
+.login-logo-container Text {
+    -fx-font-size: 2em;
+    -fx-fill: #FFFFFF;
 }
 
 .login-logo-container FontAwesomeIconView {
-    -fx-fill: #ECF39E;
+    -fx-fill: #FFFFFF;
+}
+
+/* Login form styles */
+.login-form-container {
+    -fx-background-color: #495057;
+    -fx-background-radius: 20;
+    -fx-alignment: center;
+    -fx-padding: 0 80 0 80;
+    -fx-spacing: 30;
+}
+
+.login-form-container Text {
+    -fx-fill: #FFFFFF;
+    -fx-font-size: 2em;
+    -fx-spacing: 0 0 50 0;
+}
+
+.input-field {
+    -fx-background-color: transparent;
+    -fx-pref-height: 35;
+    -fx-font-size: 1.2em;
+    -fx-border-color: transparent transparent white transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-text-fill: #FFFFFF;
+}
+
+.login-form-container CheckBox {
+    -fx-text-fill: #FFFFFF;
+}
+
+.login-form-container CheckBox .box {
+    -fx-background-color: #001933;
+    -fx-border-color: #001933;
+    -fx-border-width: 2px;
+    -fx-padding: 1.5;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.login-form-container CheckBox .box:hover {
+    -fx-border-color: #00254d;
+}
+
+.login-form-container CheckBox .box:focused {
+    -fx-border-color: #00254d;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 5, 0, 1, 1);
+}
+
+.login-form-container CheckBox .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1em;
+}
+
+/*Login button styles*/
+
+.login-forget-pane {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+.login-forget-pane Label{
+    -fx-text-fill: #001933;
+    -fx-underline: true;
+}
+.login-forget-pane Label:hover{
+    -fx-text-fill: #017dea;
+    -fx-cursor: hand;
+}
+
+.login-form-container Button {
+    -fx-font-size: 1.3em;
+    -fx-background-color: #001933;
+    -fx-text-fill: #FFFFFF;
+    -fx-pref-width: 150;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 20;
+    -fx-border-radius: 3;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow( gaussian , rgba(0, 0, 0, 0.25) , 5, 0, 1, 1 );
+}
+
+.login-form-container Button:hover {
+    -fx-background-color: #00254d;
+    -fx-cursor: hand;
+}
+/* Error label*/
+.error {
+    -fx-text-fill: #d04949;
+    -fx-font-size: 1.2em;
 }
