@@ -39,6 +39,7 @@
 
 .menu-container Button:hover{
     -fx-cursor: hand;
+    -fx-background-color: #68849b;
 }
 .menu-container Button FontAwesomeIconView{
     -fx-fill: #000000;
@@ -53,6 +54,11 @@
     -fx-font-size: 1.1em;
     -fx-alignment: center;
     -fx-font-family: 'Poppins';
+}
+
+.alt-menu-btn:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #335d8f;
 }
 
 .alt-menu-btn FontAwesomeIconView {

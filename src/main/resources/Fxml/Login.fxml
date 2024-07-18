@@ -43,8 +43,8 @@
    <VBox layoutX="539.0" layoutY="105.0" prefHeight="200.0" prefWidth="100.0" styleClass="login-form-container" stylesheets="@../Styles/Login.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!" />
       <Pane prefHeight="1.0" prefWidth="200.0" />
-      <TextField fx:id="username_txt" alignment="CENTER" promptText="Username" styleClass="input-field" />
-      <PasswordField fx:id="password_txt" alignment="CENTER" promptText="Password" styleClass="input-field" />
+      <TextField fx:id="username_txt" alignment="TOP_LEFT" focusTraversable="false" promptText="Username" styleClass="input-field" />
+      <PasswordField fx:id="password_txt" alignment="TOP_LEFT" focusTraversable="false" promptText="Password" styleClass="input-field" />
       <HBox alignment="TOP_RIGHT" prefHeight="20.0" prefWidth="339.0">
          <Pane prefHeight="20.0" prefWidth="233.0">
             <Label fx:id="error_lbl" layoutX="-28.0" prefHeight="20.0" prefWidth="249.0" styleClass="error" text="Invalid username or password" />

@@ -17,4 +17,6 @@ module com.paylink.paylink {
     exports com.paylink.paylink.models;
     exports com.paylink.paylink.services;
     exports com.paylink.paylink.views;
+    exports com.paylink.paylink.controllers.Client;
+    exports com.paylink.paylink.controllers.Admin;
 }
