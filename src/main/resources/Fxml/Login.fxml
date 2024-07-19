@@ -45,11 +45,9 @@
       <Pane prefHeight="1.0" prefWidth="200.0" />
       <TextField fx:id="username_txt" alignment="TOP_LEFT" focusTraversable="false" promptText="Username" styleClass="input-field" />
       <PasswordField fx:id="password_txt" alignment="TOP_LEFT" focusTraversable="false" promptText="Password" styleClass="input-field" />
-      <HBox alignment="TOP_RIGHT" prefHeight="20.0" prefWidth="339.0">
-         <Pane prefHeight="20.0" prefWidth="233.0">
-            <Label fx:id="error_lbl" layoutX="-28.0" prefHeight="20.0" prefWidth="249.0" styleClass="error" text="Invalid username or password" />
-         </Pane>
-         <CheckBox fx:id="password_chk" mnemonicParsing="false" prefHeight="20.0" prefWidth="136.0" text="Show Password" />
+      <HBox alignment="TOP_RIGHT" prefHeight="20.0" prefWidth="339.0" spacing="50.0">
+         <Label fx:id="error_lbl" prefHeight="20.0" prefWidth="249.0" styleClass="error" text="Invalid username or password" />
+         <CheckBox fx:id="password_chk" mnemonicParsing="false" prefHeight="20.0" prefWidth="141.0" text="Show Password" />
       </HBox>
       <VBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" styleClass="login-forget-pane">
          <Button fx:id="login_btn" mnemonicParsing="false" prefHeight="42.0" text="Login" />

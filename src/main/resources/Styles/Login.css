@@ -1,3 +1,4 @@
+
 Text {
     -fx-font-family: 'Poppins';
 }
@@ -28,7 +29,7 @@ Text {
     -fx-background-color: #121212;
     -fx-background-radius: 20;
     -fx-alignment: center;
-    -fx-padding: 0 50 0 50;
+    -fx-padding: 0 30 0 30;
     -fx-spacing: 30;
 }
 

@@ -1,0 +1,153 @@
+* {
+    -fx-font-family: 'Poppins';
+}
+
+.dashboard {
+    -fx-background-color: #000000;
+}
+
+.dashboard Text {
+    -fx-fill: #FFFFFF;
+    -fx-font-size: 1.2em;
+}
+
+.dashboard Label {
+    -fx-text-fill: #FFFFFF;
+}
+
+.username {
+    -fx-font-size: 2.6em;
+
+}
+
+/* Cards */
+.card-container {
+    -fx-background-color: #000000;
+    -fx-background-radius: 26;
+    -fx-alignment: center;
+    -fx-spacing: 50;
+    -fx-pref-height: 185;
+}
+
+.card Label{
+    -fx-text-fill: #FFFFFF;
+}
+
+.account-type {
+    -fx-font-size: 1.2em;
+}
+
+.card-amount {
+    -fx-font-size: 1.5em;
+    -fx-font-weight: bold;
+}
+
+.card-stars {
+    -fx-font-size: 1.1em;
+}
+
+.card-number {
+    -fx-font-size: 1.1em;
+}
+
+.account-summery-container {
+    -fx-background-color: #121212;
+    -fx-background-radius: 26;
+    -fx-alignment: center_right;
+    -fx-padding: 10 10 10 20;
+    -fx-spacing: 10;
+    -fx-pref-height: 185;
+}
+
+.account-summery-container Text {
+    -fx-font-size: 1.5em;
+    -fx-fill: #FFFFFF;
+}
+
+.income_amount{
+    -fx-text-fill: #0A7247;
+    -fx-font-size: 1.8em;
+    -fx-font-weight: bold;
+}
+
+.expenses-lbl {
+    -fx-text-fill: #ff4f4f;
+    -fx-font-size: 1.8em;
+    -fx-font-weight: bold;
+}
+
+.title {
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+}
+
+.send-money-container {
+    -fx-padding: 15;
+    -fx-background-color: #121212;
+    -fx-background-radius: 26;
+    -fx-spacing: 20;
+}
+
+.send-money-container Button {
+    -fx-background-color: linear-gradient(to right, #00254d, #000000);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-pref-height: 30;
+    -fx-background-radius: 10;
+}
+
+.send-money-container Button:hover {
+    -fx-background-color: #00254d;
+    -fx-cursor: hand;
+}
+
+.input-field Label{
+    -fx-font-size: 1.2em;
+}
+
+.input-field TextField {
+    -fx-background-color: #121212;
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #FFFFFF;
+}
+.input-field TextArea {
+    -fx-control-inner-background: #121212;
+    -fx-background-color: #121212;
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 5;
+    -fx-text-fill: #FFFFFF;
+}
+.input-field TextArea:focused {
+    -fx-control-inner-background: #121212;
+    -fx-background-color: #121212;
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 5;
+    -fx-text-fill: #FFFFFF;
+    -fx-faint-focus-color: transparent; /* Removes the faint focus color */
+    -fx-focus-color: transparent; /* Removes the focus color */
+}
+
+
+/* Transaction View */
+
+.transaction_listview {
+    -fx-background-color: #121212;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: #AAAAAA;
+    -fx-background-radius: 26;
+}
+
+.transaction_listview .scroll-bar:vertical {
+    -fx-scale-x: 0;
+}
+
+.list-cell {
+    -fx-background-color: #EEEEEE;
+    -fx-padding: 15 0 15 0;
+}
