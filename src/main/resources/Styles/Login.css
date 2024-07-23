@@ -3,12 +3,12 @@ Text {
     -fx-font-family: 'Poppins';
 }
 .login-container {
-    -fx-background-color: #121212;
+    -fx-background-color: #1E1E1E;
 }
 
 /*Logo container styles*/
 .login-logo-container{
-    -fx-background-color: #001933;
+    -fx-background-color: #2B2B2B;
     -fx-alignment: center;
 }
 .login-logo-container Text {
@@ -57,8 +57,8 @@ Text {
 }
 
 .login-form-container CheckBox .box {
-    -fx-background-color: #001933;
-    -fx-border-color: #001933;
+    -fx-background-color: #007BFF;
+    -fx-border-color: #007BFF;
     -fx-border-width: 2px;
     -fx-padding: 1.5;
     -fx-background-insets: 0;
@@ -67,11 +67,11 @@ Text {
 }
 
 .login-form-container CheckBox .box:hover {
-    -fx-border-color: #00254d;
+    -fx-border-color: #208eff;
 }
 
 .login-form-container CheckBox .box:focused {
-    -fx-border-color: #00254d;
+    -fx-border-color: #007BFF;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 5, 0, 1, 1);
 }
 
@@ -91,14 +91,14 @@ Text {
     -fx-underline: true;
 }
 .login-forget-pane Label:hover{
-    -fx-text-fill: #017dea;
+    -fx-text-fill: #007BFF;
     -fx-cursor: hand;
 }
 
 .login-form-container Button {
     -fx-font-family: 'Poppins';
     -fx-font-size: 1.3em;
-    -fx-background-color: #001933;
+    -fx-background-color: #007BFF;
     -fx-font-weight: bold;
     -fx-text-fill: #FFFFFF;
     -fx-pref-width: 150;
@@ -110,7 +110,7 @@ Text {
 }
 
 .login-form-container Button:hover {
-    -fx-background-color: #00254d;
+    -fx-background-color: #208eff;
     -fx-cursor: hand;
 }
 /* Error label*/

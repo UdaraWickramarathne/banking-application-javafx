@@ -1,0 +1,56 @@
+* {
+    -fx-font-family: 'Poppins';
+}
+
+.account-view-container {
+    -fx-background-color: #1E1E1E;
+}
+
+.account-view-container Text {
+    -fx-fill: #888888;
+    -fx-font-size: 1.4em;
+}
+
+.account-view-container VBox {
+    -fx-border-width: 0 0 0 1;
+    -fx-background-radius: 0 40 40 0;
+    -fx-border-radius: 0 40 40 0;
+    -fx-border-color: #888888;
+    -fx-background-color: #333333;
+    -fx-padding: 10 10 10 30;
+    -fx-spacing: 15;
+}
+
+.account-view-container VBox Text {
+    -fx-font-size: 1.2em;
+}
+
+.account-view-container VBox Label {
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 0 0 0 20;
+}
+
+.account-view-container TextField {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent white transparent;
+    -fx-pref-width: 269;
+    -fx-pref-height: 35;
+    -fx-font-size: 1.2em;
+    -fx-text-fill: #FFFFFF;
+}
+
+.account-view-container  Button {
+    -fx-background-color: #007BFF;
+    -fx-pref-width: 269;
+    -fx-pref-height: 35;
+    -fx-font-size: 1.2em;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.account-view-container Button:hover {
+    -fx-cursor: hand;
+    -fx-background-color: linear-gradient(to right, #007BFF, #3896fc);
+}

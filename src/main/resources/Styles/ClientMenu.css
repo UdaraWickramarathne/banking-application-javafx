@@ -1,21 +1,21 @@
-
-.main-menu-container{
-    -fx-background-color: #001933;
-    -fx-alignment: center;
+* {
     -fx-font-family: 'Poppins';
+}
+.main-menu-container{
+    -fx-background-color: #2B2B2B;
+    -fx-alignment: center;
 }
 
 .left-container {
     --fxbackground-color: #003f7e;
     -fx-background-radius: 10;
-    -fx-font-family: 'Poppins';
 }
 
 
 /*Title logo section*/
 .title-container {
     -fx-padding: 10;
-    -fx-font-family: 'Poppins';
+    -fx-spacing: 50;
 }
 
 /*Navigation section*/
@@ -24,17 +24,15 @@
     -fx-padding: 10;
     -fx-spacing: 20;
     -fx-alignment: center;
-    -fx-font-family: 'Poppins';
 }
 
 .menu-container Button {
-    -fx-pref-width: 150;
+    -fx-pref-width: 200;
     -fx-pref-height: 40;
-    -fx-background-color: #4d5e70;
+    -fx-background-color: #007BFF;
     -fx-text-fill: #ffffff;
     -fx-alignment: center;
     -fx-font-size: 1.1em;
-    -fx-font-family: 'Poppins';
 }
 
 .menu-container Button:hover{
@@ -42,18 +40,17 @@
     -fx-background-color: #68849b;
 }
 .menu-container Button FontAwesomeIconView{
-    -fx-fill: #000000;
+    -fx-fill: #FFFFFF;
     -fx-alignment: left;
 }
 
 .alt-menu-btn {
-    -fx-pref-width: 150;
+    -fx-pref-width: 200;
     -fx-pref-height: 40;
-    -fx-background-color: #1a3047;
+    -fx-background-color: #6C757D;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 1.1em;
     -fx-alignment: center;
-    -fx-font-family: 'Poppins';
 }
 
 .alt-menu-btn:hover {
@@ -68,31 +65,34 @@
 /*report bug*/
 
 .report-container {
-    -fx-font-family: 'Poppins';
-    -fx-spacing: 10;
-    -fx-padding: 10 0 10 0;
+    -fx-spacing: 20;
+    -fx-padding: 10;
 }
 
 .report-container Text {
     -fx-font-weight: bold;
-    -fx-font-family: 'Poppins';
     -fx-fill: #ffffff;
 }
 
 .report-container TextArea {
-    -fx-control-inner-background: #4d5e70;
-    -fx-background-color: #4d5e70;
+    -fx-control-inner-background: #343A40;
+    -fx-background-color: #343A40;
+    -fx-border-color: #CED4DA;
     -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 5;
     -fx-fill: #FFFFFF;
-    -fx-font-family: 'Poppins';
     -fx-prompt-text-fill: #FFFFFF;
 }
 
 .report-container Button{
-    -fx-pref-width: 80;
+    -fx-background-color: #007BFF;
     -fx-text-fill: #FFFFFF;
-    -fx-background-color: #292b60;
-    -fx-font-family: 'Poppins';
+    -fx-font-weight: bold;
+    -fx-pref-height: 30;
+    -fx-background-radius: 10;
+    -fx-pref-width: 100;
 }
 
 .report-container Button:hover {

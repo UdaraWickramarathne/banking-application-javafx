@@ -1,0 +1,23 @@
+* {
+    -fx-font-family:'Poppins';
+}
+
+
+.transaction-container {
+    -fx-background-color: #1E1E1E;
+}
+
+.transaction-container Text {
+    -fx-fill: #FFFFFF;
+    -fx-font-size: 2.5em;
+}
+
+.transaction-container .list-view {
+    -fx-background-color: #1E1E1E;
+    -fx-padding: 10;
+}
+
+.transaction-container .list-cell {
+    -fx-background-color: #1E1E1E;
+    -fx-pref-width: 800;
+}

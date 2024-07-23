@@ -12,7 +12,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
@@ -23,7 +22,7 @@
    <Label fx:id="login_date" layoutX="684.0" layoutY="30.0" styleClass="title" text="Today, 2022-07-06" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="30.0" />
    <Text layoutX="18.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="My Accounts" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" />
    <Text layoutX="676.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Accounts Summary" AnchorPane.rightAnchor="26.342391967773438" AnchorPane.topAnchor="90.0" />
-   <HBox layoutX="20.0" layoutY="124.0" prefHeight="217.0" prefWidth="610.0" styleClass="card-container" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="124.0">
+   <HBox layoutX="20.0" layoutY="124.0" prefHeight="217.0" prefWidth="509.0" styleClass="card-container" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="124.0">
       <AnchorPane prefHeight="185.0" prefWidth="258.0" styleClass="card">
          <ImageView fitHeight="169.0" fitWidth="245.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.004409790039062" AnchorPane.topAnchor="9.0">
             <Image url="@../../Images/visa-card-saving.png" />
@@ -31,20 +30,19 @@
          <Label layoutX="19.0" layoutY="22.0" styleClass="account-type" text="Saving Account" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="22.0" />
          <Label layoutX="22.0" layoutY="150.0" prefHeight="18.0" prefWidth="89.0" styleClass="card-stars" text="**** **** ****" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="150.0" />
          <Label fx:id="saving_acc_num" layoutX="110.0" layoutY="145.0" styleClass="card-number" text="3456" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="145.0" />
-         <Label fx:id="saving_bal" layoutX="21.0" layoutY="108.0" styleClass="card-amount" text="\$18746.18" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="108.0" />
+         <Label fx:id="saving_bal" layoutX="21.0" layoutY="108.0" styleClass="card-amount" text="\$18746.18" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="108.0" />
          <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="216.0" layoutY="38.0" size="20" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
       </AnchorPane>
       <AnchorPane prefHeight="180.0" prefWidth="261.0" styleClass="card">
-         <ImageView fitHeight="169.0" fitWidth="245.0" layoutX="7.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.004409790039062" AnchorPane.topAnchor="9.0">
+         <ImageView fitHeight="169.0" fitWidth="245.0" layoutX="8.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.004409790039062" AnchorPane.topAnchor="9.0">
             <Image url="@../../Images/visa-card-saving.png" />
          </ImageView>
-         <Label layoutX="45.0" layoutY="28.0" styleClass="account-type" text="Checking Account" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="25.0" />
-         <Label layoutX="27.0" layoutY="152.0" prefHeight="6.0" prefWidth="89.0" styleClass="card-stars" text="**** **** ****" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="150.0" />
-         <Label fx:id="checking_acc_num" layoutX="101.0" layoutY="142.0" styleClass="card-number" text="3456" AnchorPane.leftAnchor="104.0" AnchorPane.topAnchor="145.0" />
+         <Label layoutX="45.0" layoutY="28.0" styleClass="account-type" text="Checking Account" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="22.0" />
+         <Label layoutX="27.0" layoutY="152.0" prefHeight="6.0" prefWidth="89.0" styleClass="card-stars" text="**** **** ****" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="150.0" />
+         <Label fx:id="checking_acc_num" layoutX="101.0" layoutY="142.0" styleClass="card-number" text="3456" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="145.0" />
          <Label fx:id="checking_bal" layoutX="27.0" layoutY="125.0" styleClass="card-amount" text="\$18746.18" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="108.0" />
          <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="226.0" layoutY="48.0" size="20" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
       </AnchorPane>
-      <Pane prefHeight="200.0" prefWidth="200.0" />
    </HBox>
    <VBox layoutX="622.0" layoutY="124.0" prefHeight="180.0" prefWidth="200.0" styleClass="account-summery-container" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="124.0">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Income" />
@@ -96,14 +94,6 @@
             </effect>
          </TextArea>
       </VBox>
-      <Button fx:id="send_money_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="241.0" text="Send Money">
-         <effect>
-            <DropShadow height="14.65" offsetY="3.0" radius="6.825" spread="0.41" width="14.65">
-               <color>
-                  <Color opacity="0.28999999165534973" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Button>
+      <Button fx:id="send_money_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="241.0" text="Send Money" />
    </VBox>
 </AnchorPane>

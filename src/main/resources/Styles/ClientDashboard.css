@@ -3,7 +3,7 @@
 }
 
 .dashboard {
-    -fx-background-color: #000000;
+    -fx-background-color: #1E1E1E;
 }
 
 .dashboard Text {
@@ -22,7 +22,7 @@
 
 /* Cards */
 .card-container {
-    -fx-background-color: #000000;
+    /*-fx-background-color: #333333; */
     -fx-background-radius: 26;
     -fx-alignment: center;
     -fx-spacing: 50;
@@ -51,7 +51,7 @@
 }
 
 .account-summery-container {
-    -fx-background-color: #121212;
+    -fx-background-color: #333333;
     -fx-background-radius: 26;
     -fx-alignment: center_right;
     -fx-padding: 10 10 10 20;
@@ -83,13 +83,13 @@
 
 .send-money-container {
     -fx-padding: 15;
-    -fx-background-color: #121212;
+    -fx-background-color: #333333;
     -fx-background-radius: 26;
     -fx-spacing: 20;
 }
 
 .send-money-container Button {
-    -fx-background-color: linear-gradient(to right, #00254d, #000000);
+    -fx-background-color: #007BFF;
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
     -fx-pref-height: 30;
@@ -97,7 +97,7 @@
 }
 
 .send-money-container Button:hover {
-    -fx-background-color: linear-gradient(to right, #003166, #0d0d0d);
+    -fx-background-color: #1385ff;
     -fx-cursor: hand;
 }
 
@@ -106,25 +106,25 @@
 }
 
 .input-field TextField {
-    -fx-background-color: #121212;
-    -fx-border-color: #444444;
+    -fx-background-color: #343A40;
+    -fx-border-color: #CED4DA;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-text-fill: #FFFFFF;
 }
 .input-field TextArea {
-    -fx-control-inner-background: #121212;
-    -fx-background-color: #121212;
-    -fx-border-color: #444444;
+    -fx-control-inner-background: #343A40;
+    -fx-background-color: #343A40;
+    -fx-border-color: #CED4DA;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 5;
     -fx-text-fill: #FFFFFF;
 }
 .input-field TextArea:focused {
-    -fx-control-inner-background: #121212;
-    -fx-background-color: #121212;
-    -fx-border-color: #444444;
+    -fx-control-inner-background: #343A40;
+    -fx-background-color: #343A40;
+    -fx-border-color: #CED4DA;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 5;
@@ -137,7 +137,7 @@
 /* Transaction View */
 
 .transaction_listview {
-    -fx-background-color: #121212;
+    -fx-background-color: #333333;
     -fx-border-width: 0 0 0 0;
     -fx-border-color: #AAAAAA;
     -fx-background-radius: 26;

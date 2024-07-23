@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="transaction-container" stylesheets="@../../Styles/Transactions.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.paylink.paylink.controllers.Client.TransactionController">
+   <Text layoutX="336.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction" AnchorPane.leftAnchor="336.0" AnchorPane.topAnchor="14.5" />
+   <ListView fx:id="transaction_listview" layoutX="10.0" layoutY="98.0" prefHeight="640.0" prefWidth="830.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="98.0" />
+</AnchorPane>

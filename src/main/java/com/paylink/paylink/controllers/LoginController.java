@@ -3,6 +3,7 @@ package com.paylink.paylink.controllers;
 import com.paylink.paylink.models.Model;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,12 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        login_btn.setOnAction(event -> Model.getInstance().getViewFactory().showClientWindow());
+        login_btn.setOnAction(event -> onLogin());
+    }
+
+    private void onLogin(){
+        Stage stage = (Stage) error_lbl.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showClientWindow();
     }
 }

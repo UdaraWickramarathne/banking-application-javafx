@@ -1,6 +1,8 @@
 package com.paylink.paylink.views;
 
 import com.paylink.paylink.controllers.Client.ClientController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -8,10 +10,19 @@ import javafx.stage.Stage;
 
 public class ViewFactory {
     //Client views
+    private final StringProperty clientSelectedMenuItem;
     private AnchorPane dashboardView;
+    private AnchorPane transactionView;
+    private AnchorPane accountsView;
 
     public ViewFactory(){
+        this.clientSelectedMenuItem = new SimpleStringProperty("");
+    }
 
+    /* Client view section*/
+
+    public StringProperty getClientSelectedMenuItem() {
+        return clientSelectedMenuItem;
     }
 
     public AnchorPane getDashboardView(){
@@ -23,6 +34,24 @@ public class ViewFactory {
             }
         }
         return dashboardView;
+    }
+
+    public AnchorPane getTransactionView() {
+        if (transactionView == null) {
+            try {
+                transactionView = new FXMLLoader(getClass().getResource("/Fxml/Client/Transactions.fxml")).load();
+            }catch (Exception e){e.printStackTrace();}
+        }
+        return transactionView;
+    }
+
+    public AnchorPane getAccountsView() {
+        if (accountsView == null) {
+            try {
+                accountsView = new FXMLLoader(getClass().getResource("/Fxml/Client/Accounts.fxml")).load();
+            }catch (Exception e){e.printStackTrace();}
+        }
+        return accountsView;
     }
 
     public void showLoginWindow(){
@@ -39,6 +68,8 @@ public class ViewFactory {
 
     }
 
+
+
     private void createStage(FXMLLoader loader) {
         Scene scene = null;
         try {
@@ -51,4 +82,9 @@ public class ViewFactory {
         stage.setTitle("PayLink Bank");
         stage.show();
     }
+
+    public void closeStage(Stage stage){
+        stage.close();
+    }
+
 }
