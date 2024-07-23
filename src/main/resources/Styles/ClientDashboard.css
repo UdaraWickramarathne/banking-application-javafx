@@ -97,7 +97,7 @@
 }
 
 .send-money-container Button:hover {
-    -fx-background-color: #00254d;
+    -fx-background-color: linear-gradient(to right, #003166, #0d0d0d);
     -fx-cursor: hand;
 }
 
@@ -107,7 +107,7 @@
 
 .input-field TextField {
     -fx-background-color: #121212;
-    -fx-border-color: #FFFFFF;
+    -fx-border-color: #444444;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-text-fill: #FFFFFF;
@@ -115,7 +115,7 @@
 .input-field TextArea {
     -fx-control-inner-background: #121212;
     -fx-background-color: #121212;
-    -fx-border-color: #FFFFFF;
+    -fx-border-color: #444444;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 5;
@@ -124,7 +124,7 @@
 .input-field TextArea:focused {
     -fx-control-inner-background: #121212;
     -fx-background-color: #121212;
-    -fx-border-color: #FFFFFF;
+    -fx-border-color: #444444;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 5;

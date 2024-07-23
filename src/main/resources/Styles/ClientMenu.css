@@ -68,7 +68,6 @@
 /*report bug*/
 
 .report-container {
-    -fx-alignment: left;
     -fx-font-family: 'Poppins';
     -fx-spacing: 10;
     -fx-padding: 10 0 10 0;
