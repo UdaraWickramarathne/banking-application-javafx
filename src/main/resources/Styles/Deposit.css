@@ -1,0 +1,65 @@
+* {
+    -fx-font-family: 'Poppins';
+}
+
+.deposit-container {
+    -fx-background-color: #1E1E1E;
+}
+
+.search-box {
+    -fx-spacing: 20;
+    -fx-border-width: 0;
+}
+
+Text {
+    -fx-font-size: 1.6em;
+    -fx-fill: white;
+}
+
+TextField {
+    -fx-pref-width: 250;
+    -fx-background-color: #343A40;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.6em;
+}
+
+.list-view {
+    -fx-background-color: #343A40;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}
+
+.list-cell {
+    -fx-background-color: #343A40;
+    -fx-padding: 20 0 20 0;
+}
+
+Button {
+    -fx-background-color: #007BFF;
+    -fx-font-size: 1.6em;
+    -fx-text-fill: #FFFFFF;
+    -fx-pref-width: 150;
+}
+
+Button:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #1c89ff;
+}
+
+
+.deposit-box {
+    -fx-spacing: 20;
+}
+
+.deposit-box Button {
+    -fx-background-color: #28A745;
+    -fx-pref-width: 250;
+}
+
+.deposit-box Button:hover {
+    -fx-background-color: #2ed251;
+}
+
+.deposit-box TextField {
+    -fx-pref-width: 250;
+}

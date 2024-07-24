@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -40,13 +41,19 @@
          </HBox>
       </Pane>
    </VBox>
-   <VBox layoutX="539.0" layoutY="105.0" prefHeight="200.0" prefWidth="100.0" styleClass="login-form-container" stylesheets="@../Styles/Login.css" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!" />
+   <VBox layoutX="539.0" layoutY="17.0" prefHeight="515.0" prefWidth="500.0" styleClass="login-form-container" stylesheets="@../Styles/Login.css" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="17.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="440.0">
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!" />
+      </HBox>
+      <HBox prefHeight="45.0" prefWidth="440.0" styleClass="choose-account-container">
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Your Account Type:" />
+         <ChoiceBox fx:id="choice_box" prefWidth="150.0" />
+      </HBox>
       <Pane prefHeight="1.0" prefWidth="200.0" />
       <TextField fx:id="username_txt" alignment="TOP_LEFT" focusTraversable="false" promptText="Username" styleClass="input-field" />
       <PasswordField fx:id="password_txt" alignment="TOP_LEFT" focusTraversable="false" promptText="Password" styleClass="input-field" />
       <HBox alignment="TOP_RIGHT" prefHeight="20.0" prefWidth="339.0" spacing="50.0">
-         <Label fx:id="error_lbl" prefHeight="20.0" prefWidth="249.0" styleClass="error"/>
+         <Label fx:id="error_lbl" prefHeight="20.0" prefWidth="249.0" styleClass="error" />
          <CheckBox fx:id="password_chk" mnemonicParsing="false" prefHeight="20.0" prefWidth="141.0" text="Show Password" />
       </HBox>
       <VBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" styleClass="login-forget-pane">

@@ -20,6 +20,7 @@ Text {
     -fx-text-fill: #FFFFFF;
 }
 
+
 .contact-us {
     -fx-alignment: center;
 }
@@ -38,6 +39,28 @@ Text {
     -fx-font-family: 'Poppins';
     -fx-font-size: 2em;
     -fx-spacing: 0 0 50 0;
+}
+.choose-account-container {
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 20;
+}
+
+.choose-account-container Text{
+    -fx-fill: #ababab;
+    -fx-font-size: 1.2em;
+}
+
+.choose-account-container ChoiceBox {
+    -fx-background-color: #2d2d2d;
+    -fx-font-size: 1.2em;
+}
+
+.choose-account-container ChoiceBox .label {
+    -fx-text-fill: #FFFFFF;
+}
+
+.choose-account-container ChoiceBox .context-menu {
+    -fx-background-color: #2d2d2d;
 }
 
 .input-field {

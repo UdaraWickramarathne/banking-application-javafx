@@ -1,0 +1,77 @@
+* {
+    -fx-font-family: 'Poppins';
+}
+
+.create-client-container {
+    -fx-background-color: #1E1E1E;
+}
+
+.create-client-container Text {
+    -fx-font-size: 1.2em;
+    -fx-fill: #c7c7c7;
+}
+
+.title {
+    -fx-font-size: 1.5em;
+    -fx-font-weight: bold;
+}
+
+
+
+.create-client-container Label {
+    -fx-text-fill: #c7c7c7;
+    -fx-font-size: 1.2em;
+}
+
+.account-title {
+    -fx-font-size: 1.3em;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.create-client-container VBox {
+    -fx-background-color: #1E1E1E;
+    -fx-border-width: 0;
+    -fx-background-radius: 10;
+    -fx-border-color: #000000;
+    -fx-padding: 10 30 10 30;
+    -fx-spacing: 15;
+}
+
+.create-client-container CheckBox {
+    -fx-text-fill: #a9a9a9;
+}
+
+.create-client-container TextField,PasswordField {
+    -fx-pref-width: 250;
+    -fx-pref-height: 35;
+    -fx-background-color: #343A40;
+    -fx-font-size: 1.3em;
+    -fx-text-fill: #FFFFFF;
+}
+
+.payee-address-lbl {
+    -fx-pref-width: 250;
+    -fx-pref-height: 35;
+    -fx-padding: 5;
+    -fx-background-color: #b7b7b7;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.3em;
+    -fx-background-radius: 3;
+}
+
+.create-client-container Button {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: #FFFFFF;
+    -fx-pref-width: 250;
+    -fx-font-size: 1.5em;
+}
+
+.create-client-container Button:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #278dfa;
+}
+
+.error-lbl {
+    -fx-text-fill: red;
+}

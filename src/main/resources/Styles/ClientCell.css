@@ -1,0 +1,38 @@
+* {
+    -fx-font-family: 'Poppins';
+}
+
+.client-cell-container {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 7);
+}
+
+.client-cell-container FontAwesomeIconView {
+    -fx-fill: #091623;
+}
+
+.client-cell-container HBox {
+    -fx-spacing: 15;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.client-cell-container HBox Label {
+    -fx-text-fill: #444444;
+    -fx-font-size: 1.5em;
+}
+
+.acc-display-lbl {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.delete-btn {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: red;
+}
+
+.delete-btn:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #b40000;
+}

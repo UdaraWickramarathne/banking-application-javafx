@@ -1,6 +1,7 @@
 package com.paylink.paylink.controllers.Client;
 
 import com.paylink.paylink.models.Model;
+import com.paylink.paylink.views.ClientMenuOption;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -29,14 +30,14 @@ public class ClientMenuController implements Initializable {
     }
 
     private void onDashboard(){
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set("Dashboard");
+        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.DASHBOARD);
     }
 
     private void onTransaction(){
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set("Transactions");
+        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.TRANSACTION);
     }
 
     private void onAccounts(){
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set("Accounts");
+        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.ACCOUNTS);
     }
 }

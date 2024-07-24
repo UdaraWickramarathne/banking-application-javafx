@@ -1,0 +1,23 @@
+* {
+    -fx-font-family: 'Poppins';
+}
+
+.clients-container {
+    -fx-background-color: #1E1E1E;
+}
+
+.clients-container Text {
+    -fx-font-size: 1.5em;
+    -fx-font-weight: bold;
+    -fx-fill: #c7c7c7;
+}
+
+.clients-container .list-view {
+    -fx-background-color: #1E1E1E;
+    -fx-border-width: 0;
+}
+
+.clients-container .list-cell {
+    -fx-background-color: #1E1E1E;
+    -fx-padding: 10 0 10 0;
+}
