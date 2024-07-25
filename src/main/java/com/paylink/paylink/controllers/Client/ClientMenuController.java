@@ -5,6 +5,7 @@ import com.paylink.paylink.views.ClientMenuOption;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,6 +28,7 @@ public class ClientMenuController implements Initializable {
         dashboard_btn.setOnAction(event -> onDashboard());
         transaction_btn.setOnAction(event -> onTransaction());
         account_btn.setOnAction(event -> onAccounts());
+        logout_btn.setOnAction(event -> onLogout());
     }
 
     private void onDashboard(){
@@ -39,5 +41,16 @@ public class ClientMenuController implements Initializable {
 
     private void onAccounts(){
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.ACCOUNTS);
+    }
+
+    private void onLogout(){
+        //Get Stage
+        Stage stage = (Stage) dashboard_btn.getScene().getWindow();
+        //Close stage
+        Model.getInstance().getViewFactory().closeStage(stage);
+        //Show Login window
+        Model.getInstance().getViewFactory().showLoginWindow();
+        //Set Client Login Success Login Flag to false
+        Model.getInstance().setClientLoginSuccessFlag(false);
     }
 }

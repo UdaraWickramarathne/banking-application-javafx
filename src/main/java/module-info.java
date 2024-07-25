@@ -10,6 +10,7 @@ module com.paylink.paylink {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
 
     opens com.paylink.paylink to javafx.fxml;
     exports com.paylink.paylink;

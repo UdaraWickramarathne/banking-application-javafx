@@ -13,13 +13,16 @@
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create-client-container" stylesheets="@../../Styles/CreateClient.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.paylink.paylink.controllers.Admin.CreateClientController">
    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Create New Client Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-   <VBox layoutX="171.0" layoutY="39.0" prefHeight="691.0" prefWidth="509.0" AnchorPane.leftAnchor="171.0" AnchorPane.topAnchor="39.0">
+   <VBox layoutX="171.0" layoutY="39.0" prefHeight="681.0" prefWidth="509.0" AnchorPane.leftAnchor="171.0" AnchorPane.topAnchor="39.0">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
       <TextField fx:id="fName_fld" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
       <TextField fx:id="lName_fld" layoutX="10.0" layoutY="27.0" />
       <Text layoutX="10.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-      <PasswordField fx:id="password_fld" prefWidth="401.0" />
+      <AnchorPane prefHeight="50.0" prefWidth="449.0" styleClass="password-container">
+         <PasswordField fx:id="password_fld" prefWidth="449.0" />
+         <TextField fx:id="password_txt_fld" prefWidth="449.0" />
+      </AnchorPane>
       <HBox prefHeight="22.0" prefWidth="449.0">
          <CheckBox fx:id="pAddress_box" mnemonicParsing="false" text="Get Payee Address" />
          <Pane prefHeight="39.0" prefWidth="197.0" />
@@ -27,16 +30,22 @@
       </HBox>
       <Label fx:id="pAddress_lbl" styleClass="payee-address-lbl" />
       <Pane prefHeight="8.0" prefWidth="488.0" />
+      <Text layoutX="40.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <TextField fx:id="email_fld" layoutX="40.0" layoutY="140.0" />
       <Label layoutX="10.0" layoutY="166.0" styleClass="account-title" text="Accounts" />
-      <CheckBox fx:id="ch_acc_box" mnemonicParsing="false" text="Add Checking Account" />
-      <TextField fx:id="ch_amount_fld" layoutX="10.0" layoutY="67.0" promptText="Checking Account Balance" />
-      <Pane prefHeight="5.0" prefWidth="488.0" />
-      <CheckBox fx:id="sv_acc_box" layoutX="10.0" layoutY="200.0" mnemonicParsing="false" text="Add Saving Account" />
-      <TextField fx:id="sv_amount_fld" layoutX="10.0" layoutY="234.0" promptText="Saving Account Balance" />
-      <Pane prefHeight="4.0" prefWidth="488.0" />
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="account-container">
+         <VBox prefHeight="100.0" prefWidth="234.0" styleClass="add-account-container">
+            <CheckBox fx:id="ch_acc_box" mnemonicParsing="false" text="Add Checking Account" />
+            <TextField fx:id="ch_amount_fld" prefHeight="33.0" prefWidth="201.0" promptText="Balance" />
+         </VBox>
+         <VBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="231.0" styleClass="add-account-container">
+            <CheckBox fx:id="sv_acc_box" mnemonicParsing="false" text="Add Saving Account" />
+            <TextField fx:id="sv_amount_fld" promptText="Balance" />
+         </VBox>
+      </HBox>
       <HBox alignment="TOP_RIGHT" prefHeight="41.0" prefWidth="488.0">
          <Button fx:id="create_client_btn" mnemonicParsing="false" prefHeight="39.0" prefWidth="512.0" text="Create Account" />
       </HBox>
-      <Label fx:id="error_lbl" styleClass="error-lbl" text="Error" />
+      <Label fx:id="error_lbl" styleClass="error-lbl" text="" />
    </VBox>
 </AnchorPane>

@@ -140,7 +140,6 @@
     -fx-background-color: #333333;
     -fx-border-width: 0 0 0 0;
     -fx-border-color: #AAAAAA;
-    -fx-background-radius: 26;
 }
 
 .transaction_listview .scroll-bar:vertical {
@@ -148,6 +147,6 @@
 }
 
 .list-cell {
-    -fx-background-color: #EEEEEE;
-    -fx-padding: 15 0 15 0;
+    -fx-background-color: #333333;
+    -fx-padding: 15 10 15 10;
 }

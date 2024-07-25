@@ -13,7 +13,7 @@
 }
 
 .client-cell-container HBox {
-    -fx-spacing: 15;
+    -fx-spacing: 25;
     -fx-alignment: CENTER_LEFT;
 }
 

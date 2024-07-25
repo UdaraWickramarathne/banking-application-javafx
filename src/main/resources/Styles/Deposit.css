@@ -63,3 +63,7 @@ Button:hover {
 .deposit-box TextField {
     -fx-pref-width: 250;
 }
+
+.info-lbl {
+    -fx-font-size: 1.4em;
+}

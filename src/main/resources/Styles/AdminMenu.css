@@ -1,0 +1,63 @@
+* {
+    -fx-font-family: 'Poppins';
+}
+.main-menu-container{
+    -fx-background-color: #2B2B2B;
+    -fx-alignment: center;
+}
+
+.left-container {
+    --fxbackground-color: #003f7e;
+    -fx-background-radius: 10;
+}
+
+
+/*Title logo section*/
+.title-container {
+    -fx-padding: 10;
+    -fx-spacing: 50;
+}
+
+/*Navigation section*/
+
+.menu-container {
+    -fx-padding: 10;
+    -fx-spacing: 20;
+    -fx-alignment: center;
+}
+
+.menu-container Button {
+    -fx-pref-width: 200;
+    -fx-pref-height: 40;
+    -fx-background-color: #007BFF;
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
+    -fx-font-size: 1.1em;
+}
+
+.menu-container Button:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #68849b;
+}
+.menu-container Button FontAwesomeIconView{
+    -fx-fill: #FFFFFF;
+    -fx-alignment: left;
+}
+
+.alt-menu-btn {
+    -fx-pref-width: 200;
+    -fx-pref-height: 40;
+    -fx-background-color: #6C757D;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.1em;
+    -fx-alignment: center;
+}
+
+.alt-menu-btn:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #335d8f;
+}
+
+.alt-menu-btn FontAwesomeIconView {
+    -fx-fill: #FFFFFF;
+}

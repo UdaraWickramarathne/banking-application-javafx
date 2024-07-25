@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="60.0" prefWidth="550.0" styleClass="cell-container" stylesheets="@../../Styles/TransactionCell.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="60.0" prefWidth="500.0" styleClass="cell-container" stylesheets="@../../Styles/TransactionCell.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
     <VBox prefHeight="50.0" prefWidth="50.0" styleClass="trans-icon-container" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="5.0">
         <FontAwesomeIconView fx:id="in_icon" glyphName="LONG_ARROW_RIGHT" size="17" />
         <FontAwesomeIconView fx:id="out_icon" glyphName="LONG_ARROW_LEFT" size="17" />
