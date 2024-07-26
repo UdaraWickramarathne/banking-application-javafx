@@ -3,6 +3,7 @@ package com.paylink.paylink.controllers.Client;
 import com.paylink.paylink.models.Model;
 import com.paylink.paylink.models.Transaction;
 import com.paylink.paylink.utils.CustomAlertBox;
+import com.paylink.paylink.utils.NotificationUtil;
 import com.paylink.paylink.views.TransactionCellFactory;
 import javafx.beans.binding.Binding;
 import javafx.beans.binding.Bindings;
@@ -67,23 +68,35 @@ public class DashboardController implements Initializable {
             ResultSet resultSet = Model.getInstance().getDatabaseDriver().searchClient(receiver);
             try {
                 if (resultSet.next()){
-                    Model.getInstance().getDatabaseDriver().updateBalance(receiver,amount, "ADD");
+
                     //Subtract from Sender's savings account
-                    Model.getInstance().getDatabaseDriver().updateBalance(sender,amount,"SUB");
+                    int result = Model.getInstance().getDatabaseDriver().updateBalance(sender,amount,"SUB");
+                    if(result == 1){
+                        //Add money to receiver savings account
+                        Model.getInstance().getDatabaseDriver().updateBalance(receiver,amount, "ADD");
+                        //Update the savings account balance in the client object
+                        Model.getInstance().getClient().savingsAccountProperty().get().setBalance(Model.getInstance().getDatabaseDriver().savingAccountBalance(sender));
 
-                    //Update the savings account balance in the client object
+                        //Record new transaction
+                        Model.getInstance().getDatabaseDriver().newTransaction(sender, receiver, amount, message);
 
-                    Model.getInstance().getClient().savingsAccountProperty().get().setBalance(Model.getInstance().getDatabaseDriver().savingAccountBalance(sender));
+                        //Clear fields
+                        payee_fld.setText("");
+                        amount_fld.setText("");
+                        message_fld.setText("");
 
-                    //Record new transaction
 
-                    Model.getInstance().getDatabaseDriver().newTransaction(sender, receiver, amount, message);
+                        //Send email for receiver
+                        NotificationUtil.sendMail(sender,receiver,amount,resultSet.getString("Email"),"Receiver");
 
-                    //Clear fields
-                    payee_fld.setText("");
-                    amount_fld.setText("");
-                    message_fld.setText("");
-                    CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Payment Successfully!", "Thank you for using our service. Your transaction has been successfully completed.");
+                        //Send email for Sender
+                        NotificationUtil.sendMail(sender,receiver,amount,Model.getInstance().getClient().emailAddressProperty().get(),"Sender");
+
+                        CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Payment Successfully!", "Thank you for using our service. Your transaction has been successfully completed.");
+                    }
+                    else {
+                        CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Payment Failed!", "Insufficient balance for this transaction. Please enter a smaller amount.");
+                    }
                 }
                 else {
                     CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Invalid Receiver!", "Invalid Receiver. Please double check before you proceed!");

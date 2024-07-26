@@ -74,9 +74,10 @@ public class DatabaseDriver {
 
     // Method to either add or subtract from balance given operation
 
-    public void updateBalance(String pAddress, double amount, String operation) {
+    public int updateBalance(String pAddress, double amount, String operation) {
         Statement statement;
         ResultSet resultSet = null;
+        int rows = 0;
         try {
             statement = this.conn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM SavingsAccounts WHERE Owner = '"+pAddress+"';");
@@ -84,12 +85,12 @@ public class DatabaseDriver {
                 double newBalance;
                 if(operation.equals("ADD")){
                     newBalance = resultSet.getDouble("Balance") + amount;
-                    statement.executeUpdate("UPDATE SavingsAccounts SET Balance = "+newBalance+" WHERE Owner = '"+pAddress+"'");
+                    rows = statement.executeUpdate("UPDATE SavingsAccounts SET Balance = "+newBalance+" WHERE Owner = '"+pAddress+"'");
                 }
                 else {
                     if(resultSet.getDouble("Balance") >= amount){
                         newBalance = resultSet.getDouble("Balance") - amount;
-                        statement.executeUpdate("UPDATE SavingsAccounts SET Balance = "+newBalance+" WHERE Owner = '"+pAddress+"'");
+                        rows = statement.executeUpdate("UPDATE SavingsAccounts SET Balance = "+newBalance+" WHERE Owner = '"+pAddress+"'");
                     }
                 }
             }
@@ -97,6 +98,7 @@ public class DatabaseDriver {
         catch (SQLException e){
             e.printStackTrace();
         }
+        return rows;
     }
 
     //  Creates and record  new transaction
