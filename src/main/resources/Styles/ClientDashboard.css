@@ -106,25 +106,23 @@
 }
 
 .input-field TextField {
-    -fx-background-color: #343A40;
-    -fx-border-color: #CED4DA;
+    -fx-background-color: #4b4f4f;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-text-fill: #FFFFFF;
+    -fx-padding: 5 ;
 }
 .input-field TextArea {
-    -fx-control-inner-background: #343A40;
-    -fx-background-color: #343A40;
-    -fx-border-color: #CED4DA;
+    -fx-control-inner-background: #4b4f4f;
+    -fx-background-color: #4b4f4f;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 5;
     -fx-text-fill: #FFFFFF;
 }
 .input-field TextArea:focused {
-    -fx-control-inner-background: #343A40;
-    -fx-background-color: #343A40;
-    -fx-border-color: #CED4DA;
+    -fx-control-inner-background: #4b4f4f;
+    -fx-background-color: #4b4f4f;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
     -fx-padding: 5;

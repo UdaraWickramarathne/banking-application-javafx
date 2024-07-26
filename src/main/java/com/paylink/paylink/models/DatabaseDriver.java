@@ -52,6 +52,72 @@ public class DatabaseDriver {
         }
         return resultSet;
     }
+    //Method returns savings account Balance
+
+    public double savingAccountBalance(String pAddress){
+        Statement statement;
+        ResultSet resultSet = null;
+        double balance = 0;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM SavingsAccounts WHERE Owner = '"+pAddress+"';");
+            if(resultSet.next()){
+               balance = resultSet.getDouble("Balance");
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return balance;
+    }
+
+
+    // Method to either add or subtract from balance given operation
+
+    public void updateBalance(String pAddress, double amount, String operation) {
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM SavingsAccounts WHERE Owner = '"+pAddress+"';");
+            if(resultSet.next()){
+                double newBalance;
+                if(operation.equals("ADD")){
+                    newBalance = resultSet.getDouble("Balance") + amount;
+                    statement.executeUpdate("UPDATE SavingsAccounts SET Balance = "+newBalance+" WHERE Owner = '"+pAddress+"'");
+                }
+                else {
+                    if(resultSet.getDouble("Balance") >= amount){
+                        newBalance = resultSet.getDouble("Balance") - amount;
+                        statement.executeUpdate("UPDATE SavingsAccounts SET Balance = "+newBalance+" WHERE Owner = '"+pAddress+"'");
+                    }
+                }
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    //  Creates and record  new transaction
+
+    public void newTransaction(String sender, String receiver, double amount, String message){
+        PreparedStatement statement;
+        String sql = "INSERT INTO Transactions (Sender, Receiver, Amount, Date, Message) VALUES (?, ?, ?, ?, ?)";
+        try {
+            statement = this.conn.prepareStatement(sql);
+            LocalDate date = LocalDate.now();
+            statement.setString(1,sender);
+            statement.setString(2, receiver);
+            statement.setDouble(3, amount);
+            statement.setString(4, date.toString());
+            statement.setString(5, message);
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 
 
     /*
@@ -136,18 +202,7 @@ public class DatabaseDriver {
         return resultSet;
     }
 
-    public ResultSet searchClient(String pAddress){
-        Statement statement;
-        ResultSet resultSet = null;
-        try{
-            statement = this.conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Clients WHERE PayeeAddress = '"+pAddress+"'");
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
+
 
     public void depositSavings(String pAddress, double amount){
         Statement statement;
@@ -165,6 +220,21 @@ public class DatabaseDriver {
     Utility Section
 
      */
+
+    public ResultSet searchClient(String pAddress){
+        Statement statement;
+        ResultSet resultSet = null;
+        try{
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Clients WHERE PayeeAddress = '"+pAddress+"'");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
     public int getLastClientsId(){
         Statement statement;
         ResultSet resultSet;
@@ -210,6 +280,22 @@ public class DatabaseDriver {
             e.printStackTrace();
         }
         return resultSet;
+    }
+
+    public void updateClient(String pAddress, String fName, String lName, String email){
+        PreparedStatement statement;
+        String sql = "UPDATE Clients SET FirstName = ?, LastName = ?, Email = ? WHERE PayeeAddress = ?";
+        try {
+            statement = this.conn.prepareStatement(sql);
+            statement.setString(1,fName);
+            statement.setString(2,lName);
+            statement.setString(3,email);
+            statement.setString(4,pAddress);
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
 }

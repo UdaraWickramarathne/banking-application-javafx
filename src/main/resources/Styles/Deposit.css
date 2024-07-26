@@ -10,10 +10,14 @@
     -fx-spacing: 20;
     -fx-border-width: 0;
 }
-
-Text {
+.search-box Text {
     -fx-font-size: 1.6em;
     -fx-fill: white;
+}
+
+.result-container Text{
+    -fx-font-size: 1.3em;
+    -fx-fill: #b9b9b9;
 }
 
 TextField {
@@ -23,15 +27,12 @@ TextField {
     -fx-font-size: 1.6em;
 }
 
-.list-view {
+.result-container TextField {
+    -fx-pref-width: 200;
+    -fx-pref-height: 30;
     -fx-background-color: #343A40;
-    -fx-background-radius: 10;
-    -fx-padding: 10;
-}
-
-.list-cell {
-    -fx-background-color: #343A40;
-    -fx-padding: 20 0 20 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.3em;
 }
 
 Button {
@@ -46,9 +47,27 @@ Button:hover {
     -fx-background-color: #1c89ff;
 }
 
+.edit-button {
+    -fx-background-color: #1E1E1E;
+    -fx-font-size: 1.6em;
+    -fx-border-width: 2;
+    -fx-border-color: #1c89ff;
+    -fx-border-radius: 5;
+    -fx-text-fill: #FFFFFF;
+    -fx-pref-width: 150;
+}
+
+.edit-button:hover {
+    -fx-background-color: #1c89ff;
+}
+
 
 .deposit-box {
     -fx-spacing: 20;
+}
+.deposit-box Text {
+    -fx-font-size: 1.3em;
+    -fx-fill: #FFFFFF;
 }
 
 .deposit-box Button {

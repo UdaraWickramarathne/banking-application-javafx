@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,8 +12,8 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="deposit-container" stylesheets="@../../Styles/Deposit.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.paylink.paylink.controllers.Admin.DepositController">
-    <VBox layoutX="15.0" layoutY="90.0" prefHeight="570.0" prefWidth="820.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="100.0">
-        <HBox alignment="CENTER" prefHeight="31.0" prefWidth="820.0" styleClass="search-box">
+    <VBox layoutX="15.0" layoutY="14.0" prefHeight="707.0" prefWidth="820.0" AnchorPane.leftAnchor="15.0">
+        <HBox alignment="CENTER" prefHeight="103.0" prefWidth="820.0" styleClass="search-box">
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Search Payee Address" />
             <TextField fx:id="pAddress_fld" />
             <Button fx:id="search_btn" mnemonicParsing="false" text="Search">
@@ -22,18 +22,46 @@
                 </graphic>
             </Button>
         </HBox>
-        <Pane prefHeight="150.0" prefWidth="820.0" />
-        <ListView fx:id="result_listview" prefHeight="349.0" prefWidth="820.0" />
-        <Pane prefHeight="150.0" prefWidth="820.0" />
-        <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="300.0" prefWidth="820.0" styleClass="deposit-box">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit Section" />
-            <TextField fx:id="amount_fld" alignment="CENTER" promptText="Amount" />
+      <Pane layoutX="10.0" layoutY="432.0" prefHeight="68.0" prefWidth="820.0" />
+        <HBox alignment="CENTER" prefHeight="121.0" prefWidth="820.0" spacing="50.0">
+            <Button fx:id="edit_btn" mnemonicParsing="false" styleClass="edit-button" text="Edit"/>
+            <Button fx:id="update_btn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="edit-button"
+                    text="Update"/>
+        </HBox>
+        <HBox fx:id="result_list" alignment="CENTER" prefHeight="242.0" prefWidth="820.0" styleClass="input-box">
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <AnchorPane prefHeight="280.0" prefWidth="820.0" styleClass="result-container">
+                <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name"/>
+                <TextField fx:id="fName_fld" layoutX="143.0" layoutY="15.0" prefHeight="33.0" prefWidth="221.0"
+                           AnchorPane.topAnchor="15.0"/>
+                <Text layoutX="14.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name"/>
+                <TextField fx:id="lName_fld" layoutX="143.0" layoutY="72.0" AnchorPane.topAnchor="72.0"/>
+                <Text layoutX="14.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payee Address"/>
+                <TextField fx:id="payee_add_fld" layoutX="143.0" layoutY="127.0" AnchorPane.topAnchor="127.0"/>
+                <Text layoutX="14.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address"/>
+                <TextField fx:id="email_fld" layoutX="143.0" layoutY="182.0"/>
+                <Text layoutX="427.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Number"/>
+                <TextField fx:id="ch_acc_num" layoutX="586.0" layoutY="15.0" prefHeight="40.0" prefWidth="221.0"
+                           AnchorPane.topAnchor="15.0"/>
+                <Text layoutX="427.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Checking Balance"/>
+                <TextField fx:id="ch_bal_fld" layoutX="586.0" layoutY="73.0" prefHeight="40.0" prefWidth="221.0"/>
+                <Text layoutX="427.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saving Number"/>
+                <TextField fx:id="sv_acc_num" layoutX="586.0" layoutY="126.0" prefHeight="40.0" prefWidth="221.0"/>
+                <Text layoutX="427.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saving Balance"/>
+                <TextField fx:id="sv_bal_fld" layoutX="586.0" layoutY="183.0" prefHeight="40.0" prefWidth="221.0"/>
+            </AnchorPane>
+        </HBox>
+      <Pane layoutX="10.0" layoutY="50.0" prefHeight="96.0" prefWidth="820.0" />
+        <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="152.0" prefWidth="820.0" styleClass="deposit-box">
+            <TextField fx:id="amount_fld" alignment="CENTER" promptText="Enter Amount" />
             <Button fx:id="deposit_btn" mnemonicParsing="false" text="Deposit">
                 <graphic>
                     <FontAwesomeIconView fill="WHITE" glyphName="MONEY" size="20" />
                 </graphic>
             </Button>
-         <Pane prefHeight="200.0" prefWidth="200.0" />
          <Label fx:id="info_lbl" styleClass="info-lbl" />
         </VBox>
     </VBox>

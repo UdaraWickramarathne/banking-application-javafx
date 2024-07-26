@@ -60,23 +60,23 @@
             <Insets top="2.0" />
          </VBox.margin>
          <Label text="Payee Address" />
-         <TextField fx:id="payee_fld" prefWidth="225.0">
+         <TextField fx:id="payee_fld" prefHeight="52.0" prefWidth="215.0">
             <effect>
                <DropShadow height="14.65" offsetY="3.0" radius="6.825" spread="0.48" width="14.65">
                   <color>
-                     <Color opacity="0.28999999165534973" />
+                     <Color opacity="0.07244274020195007" />
                   </color>
                </DropShadow>
             </effect>
          </TextField>
       </VBox>
-      <VBox prefHeight="49.0" prefWidth="225.0" spacing="5.0" styleClass="input-field">
+      <VBox prefHeight="64.0" prefWidth="215.0" spacing="5.0" styleClass="input-field">
          <Label text="Amount In $:" />
-         <TextField fx:id="amount_fld">
+         <TextField fx:id="amount_fld" prefHeight="34.0" prefWidth="215.0">
             <effect>
                <DropShadow height="14.65" offsetY="3.0" radius="6.825" spread="0.48" width="14.65">
                   <color>
-                     <Color opacity="0.28999999165534973" />
+                     <Color opacity="0.08389312028884888" />
                   </color>
                </DropShadow>
             </effect>
@@ -88,7 +88,7 @@
             <effect>
                <DropShadow height="14.65" offsetY="3.0" radius="6.825" spread="0.48" width="14.65">
                   <color>
-                     <Color opacity="0.28999999165534973" />
+                     <Color opacity="0.09152670949697495" />
                   </color>
                </DropShadow>
             </effect>

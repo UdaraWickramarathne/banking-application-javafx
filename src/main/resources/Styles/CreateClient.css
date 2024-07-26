@@ -80,6 +80,8 @@
     -fx-text-fill: #FFFFFF;
     -fx-pref-width: 250;
     -fx-font-size: 1.5em;
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
 }
 
 .create-client-container Button:hover {

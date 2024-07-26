@@ -3,19 +3,20 @@
 }
 
 .cell-container {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #eeeeee;
     -fx-background-radius: 10;
-    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 7);
+    -fx-border-width: 0;
+   /* -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 7); */
 }
 
 .trans-icon-container {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #eeeeee;
     -fx-alignment: center;
     -fx-spacing: 5;
 }
 
 .trans-date-lbl {
-    -fx-text-fill: #AAAAAA;
+    -fx-text-fill: #575757;
     -fx-font-weight: bold;
 }
 
@@ -25,12 +26,12 @@
 }
 
 .cell-container Line {
-    -fx-stroke: #EEEEEE;
+    -fx-stroke: #000000;
 }
 
 .trans-amount-lbl {
     -fx-background-color: #007BFF;
-    -fx-background-radius: 2;
+    -fx-background-radius: 10;
     -fx-text-fill: #FFFFFF;
     -fx-padding: 5;
     -fx-font-weight: bold;

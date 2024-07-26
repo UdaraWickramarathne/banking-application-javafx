@@ -57,6 +57,7 @@ VALUES
     ('Clients', 0),
     ('SavingsAccounts', 0),
     ('Transactions', 0);
+
 DELIMITER //
 
 CREATE TRIGGER admins_after_insert
@@ -64,7 +65,7 @@ AFTER INSERT ON Admins
 FOR EACH ROW
 BEGIN
     UPDATE sequence_tracking
-    SET seq = NEW.ID + 1
+    SET seq = NEW.ID
     WHERE name = 'Admins';
 END//
 
@@ -73,7 +74,7 @@ AFTER INSERT ON CheckingAccounts
 FOR EACH ROW
 BEGIN
     UPDATE sequence_tracking
-    SET seq = NEW.ID + 1
+    SET seq = NEW.ID
     WHERE name = 'CheckingAccounts';
 END//
 
@@ -82,7 +83,7 @@ AFTER INSERT ON Clients
 FOR EACH ROW
 BEGIN
     UPDATE sequence_tracking
-    SET seq = NEW.ID + 1
+    SET seq = NEW.ID
     WHERE name = 'Clients';
 END//
 
@@ -91,7 +92,7 @@ AFTER INSERT ON SavingsAccounts
 FOR EACH ROW
 BEGIN
     UPDATE sequence_tracking
-    SET seq = NEW.ID + 1
+    SET seq = NEW.ID
     WHERE name = 'SavingsAccounts';
 END//
 
@@ -100,16 +101,24 @@ AFTER INSERT ON Transactions
 FOR EACH ROW
 BEGIN
     UPDATE sequence_tracking
-    SET seq = NEW.ID + 1
+    SET seq = NEW.ID
     WHERE name = 'Transactions';
 END//
 
 DELIMITER ;
 
+INSERT INTO Clients (FirstName, LastName, PayeeAddress, Password, Date, Email) 
+VALUES ('Thor', 'Baker', 'tBaker2', '1234', '2024-07-26', 'thor.baker@example.com');
+
+INSERT INTO Admins (Username, Password) 
+VALUES ('admin', '123');
 
     
  -- TABLE Admins AUTO_INCREMENT = 1;
  
+INSERT INTO Transactions (Sender, Receiver, Amount, Date, Message)
+VALUES ('@uWick3', 'tBaker2', 150.75, '2024-07-25', 'Payment for services');
+
 
 
 
