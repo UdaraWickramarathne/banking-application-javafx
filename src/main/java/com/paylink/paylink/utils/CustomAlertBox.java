@@ -3,6 +3,7 @@ package com.paylink.paylink.utils;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class CustomAlertBox {
@@ -21,7 +22,7 @@ public class CustomAlertBox {
         //Add css styles for AlertBox
         alert.getDialogPane().getStylesheets().add(CustomAlertBox.class.getResource("/Styles/Alert.css").toExternalForm());
 
-
+        stage.initModality(Modality.APPLICATION_MODAL); //Prevent outside clicks
         alert.showAndWait();
     }
 }

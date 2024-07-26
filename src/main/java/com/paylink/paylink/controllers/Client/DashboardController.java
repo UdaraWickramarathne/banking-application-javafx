@@ -37,6 +37,7 @@ public class DashboardController implements Initializable {
         transaction_listview.setItems(Model.getInstance().getLatestTransactions());
         transaction_listview.setCellFactory(e -> new TransactionCellFactory());
         send_money_btn.setOnAction(event -> onSendMoney());
+        accountSummery();
     }
 
     private void bindData(){
@@ -94,8 +95,50 @@ public class DashboardController implements Initializable {
 
         }
         else{
-
             CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Fields are Empty!", "You must fill the Payee Address and Amount Field!");
         }
     }
+
+    // Method calculates all expenses and income
+
+    private void accountSummery(){
+        double income = 0;
+        double expenses = 0;
+        if(Model.getInstance().getAllTransactions().isEmpty()){
+            Model.getInstance().setAllTransactions();
+        }
+        for (Transaction transaction : Model.getInstance().getAllTransactions()){
+            if (transaction.senderProperty().get().equals(Model.getInstance().getClient().payeeAddressProperty().get())){
+                expenses = expenses + transaction.amountProperty().get();
+            }
+            else {
+                income = income + transaction.amountProperty().get();
+            }
+
+        }
+        income_lbl.setText("+ $" + income);
+        expense_lbl.setText("- $" + expenses);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
