@@ -215,6 +215,32 @@ public class DatabaseDriver {
         }
     }
 
+    public void deleteCleint(String pAddres){
+        PreparedStatement statement;
+        String sql = "DELETE FROM Clients WHERE PayeeAddress = ?";
+        try {
+            statement = this.conn.prepareStatement(sql);
+            statement.setString(1,pAddres);
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteAccounts(String pAddress, String tableName){
+        PreparedStatement statement;
+        String sql = "DELETE FROM "+tableName+" WHERE Owner = ?";
+        try {
+            statement = this.conn.prepareStatement(sql);
+            statement.setString(1,pAddress);
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 
     /*
     Utility Section

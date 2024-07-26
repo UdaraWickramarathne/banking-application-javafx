@@ -2,6 +2,7 @@ package com.paylink.paylink.controllers.Client;
 
 import com.paylink.paylink.models.Model;
 import com.paylink.paylink.models.Transaction;
+import com.paylink.paylink.utils.CustomAlertBox;
 import com.paylink.paylink.views.TransactionCellFactory;
 import javafx.beans.binding.Binding;
 import javafx.beans.binding.Bindings;
@@ -57,7 +58,7 @@ public class DashboardController implements Initializable {
         if (!payee_fld.getText().isEmpty() && !amount_fld.getText().isEmpty()){
             String receiver = payee_fld.getText();
             double amount = Double.parseDouble(amount_fld.getText());
-            String message = "This is default message";
+            String message = "This is a default message";
             if(!message_fld.getText().isEmpty()){
                 message = message_fld.getText();
             }
@@ -81,6 +82,10 @@ public class DashboardController implements Initializable {
                     payee_fld.setText("");
                     amount_fld.setText("");
                     message_fld.setText("");
+                    CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Payment Successfully!", "Thank you for using our service. Your transaction has been successfully completed.");
+                }
+                else {
+                    CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Invalid Receiver!", "Invalid Receiver. Please double check before you proceed!");
                 }
             }
             catch (Exception e){
@@ -90,6 +95,7 @@ public class DashboardController implements Initializable {
         }
         else{
 
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Fields are Empty!", "You must fill the Payee Address and Amount Field!");
         }
     }
 }

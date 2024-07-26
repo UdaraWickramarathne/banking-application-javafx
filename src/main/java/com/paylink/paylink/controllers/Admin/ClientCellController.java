@@ -1,8 +1,12 @@
 package com.paylink.paylink.controllers.Admin;
 
 import com.paylink.paylink.models.Client;
+import com.paylink.paylink.models.Model;
+import com.paylink.paylink.utils.CustomAlertBox;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 
 import java.net.URL;
@@ -31,5 +35,20 @@ public class ClientCellController implements Initializable {
         ch_acc_lbl.textProperty().bind(client.checkingAccountProperty().asString());
         sv_acc_lbl.textProperty().bind(client.savingsAccountProperty().asString());
         date_lbl.textProperty().bind(client.dateCreatedProperty().asString());
+        delete_btn.setOnAction(event -> deleteClientDetails());
+    }
+
+    private void deleteClientDetails(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Client Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to delete this client? This action cannot be undone and the client's information will be permanently removed from the system.");
+        if (alert.showAndWait().get() == ButtonType.OK){
+            Model.getInstance().getDatabaseDriver().deleteCleint(pAddress_lbl.getText());
+            Model.getInstance().getDatabaseDriver().deleteAccounts(pAddress_lbl.getText(),"CheckingAccounts");
+            Model.getInstance().getDatabaseDriver().deleteAccounts(pAddress_lbl.getText(), "SavingsAccounts");
+
+            CustomAlertBox.showAlert(Alert.AlertType.INFORMATION,"Delete successfully ","The client has been successfully deleted from the system.");
+        }
     }
 }

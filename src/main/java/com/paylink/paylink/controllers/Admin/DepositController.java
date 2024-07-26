@@ -2,6 +2,7 @@ package com.paylink.paylink.controllers.Admin;
 
 import com.paylink.paylink.models.Client;
 import com.paylink.paylink.models.Model;
+import com.paylink.paylink.utils.CustomAlertBox;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -130,11 +131,7 @@ public class DepositController implements Initializable {
             edit_btn.setVisible(false);
         }
         else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Invalid Information");
-            alert.setHeaderText(null);
-            alert.setContentText("Please Fill FirstName, LastName and Email fields!");
-            alert.showAndWait();
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Invalid Information!", "Please ensure all necessary fields are filled out before submitting your update.");
         }
     }
 }
