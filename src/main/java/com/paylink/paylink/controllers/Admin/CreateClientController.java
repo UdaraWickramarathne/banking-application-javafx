@@ -1,6 +1,7 @@
 package com.paylink.paylink.controllers.Admin;
 
 import com.paylink.paylink.models.Model;
+import com.paylink.paylink.utils.CustomAlertBox;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
@@ -34,6 +35,7 @@ public class CreateClientController implements Initializable {
         //Default hide the account types
         sv_amount_fld.setVisible(false);
         ch_amount_fld.setVisible(false);
+        pAddress_lbl.setText("");
 
         password_txt_fld.setVisible(false);
 
@@ -79,24 +81,70 @@ public class CreateClientController implements Initializable {
     }
 
     private void onPasswordCheckChanged(){
-        if(show_password_box.isSelected()){
+        passwordVisible(show_password_box, password_txt_fld, password_fld);
+    }
+
+    public static void passwordVisible(CheckBox showPasswordBox, TextField passwordTxtFld, PasswordField passwordFld) {
+        if(showPasswordBox.isSelected()){
             //show password
-            password_txt_fld.setText(password_fld.getText());
-            password_txt_fld.setVisible(true);
-            password_fld.setVisible(false);
+            passwordTxtFld.setText(passwordFld.getText());
+            passwordTxtFld.setVisible(true);
+            passwordFld.setVisible(false);
         }
         else {
             //Hide Password
-            password_fld.setText(password_txt_fld.getText());
-            password_fld.setVisible(true);
-            password_txt_fld.setVisible(false);
+            passwordFld.setText(passwordTxtFld.getText());
+            passwordFld.setVisible(true);
+            passwordTxtFld.setVisible(false);
         }
     }
 
     private void createClient(){
+        String fName = fName_fld.getText();
+        String lName = lName_fld.getText();
+        String password = password_fld.getText();
+        String email = email_fld.getText();
+
+        if(fName.isEmpty() || lName.isEmpty() || password.isEmpty() || email.isEmpty()){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Please fill all the fields before you continue.");
+            return;
+        }
+
+        if(pAddress_lbl.getText().isEmpty()){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Please check Get Payee Address box before you continue.");
+            return;
+        }
+
+        if(!ch_acc_box.isSelected()){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Please check checking account property.");
+            return;
+        }
+        if(!sv_acc_box.isSelected()){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Please check savings account property.");
+            return;
+        }
+
         //Create Checking Account
+        if(ch_amount_fld.getText().isEmpty()){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Please enter Checking Account amount.");
+            return;
+        }
+        else if(Double.parseDouble(ch_amount_fld.getText()) < 1000){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Checking Account minimum deposit balance is $1000.");
+            return;
+        }
         if(createCheckingAccountFlag){
             createAccount("Checking");
+        }
+
+        //Create savings account
+        if(ch_amount_fld.getText().isEmpty()){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Please enter Savings Account amount.");
+            return;
+        }
+        else if(Double.parseDouble(sv_amount_fld.getText()) < 1000){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Savings Account minimum deposit balance is $1000.");
+            return;
         }
 
         if (createSavingsAccountFlag){
@@ -104,10 +152,7 @@ public class CreateClientController implements Initializable {
         }
 
         //Create Client
-        String fName = fName_fld.getText();
-        String lName = lName_fld.getText();
-        String password = password_fld.getText();
-        String email = email_fld.getText();
+
         Model.getInstance().getDatabaseDriver().createClient(fName, lName,payeeAddress, password, LocalDate.now(),email);
         error_lbl.setStyle("-fx-text-fill: #28A745; -fx-font-weight: bold; -fx-font-size: 1.3em;");
         error_lbl.setText("Client Created Successfully!");
@@ -115,7 +160,7 @@ public class CreateClientController implements Initializable {
     }
 
     private void createAccount(String accountType){
-        double balance = Double.parseDouble(ch_amount_fld.getText());
+        double balance = 0;
         //Generate Account number
         String firstSection = "4135";
         String lastSection = Integer.toString(new Random().nextInt((9999 - 1000) + 1) + 1000);
@@ -123,9 +168,11 @@ public class CreateClientController implements Initializable {
 
         //Create Checking or Saving account
         if (accountType.equals("Checking")){
+            balance = Double.parseDouble(ch_amount_fld.getText());
             Model.getInstance().getDatabaseDriver().createCheckingAccount(payeeAddress, accNumber, 10, balance);
         }
         else {
+            balance = Double.parseDouble(sv_amount_fld.getText());
             Model.getInstance().getDatabaseDriver().createSavingAccount(payeeAddress, accNumber, 2000, balance);
         }
 

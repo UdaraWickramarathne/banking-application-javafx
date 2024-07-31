@@ -1,5 +1,6 @@
 package com.paylink.paylink.controllers;
 
+import com.paylink.paylink.controllers.Admin.CreateClientController;
 import com.paylink.paylink.models.Model;
 import com.paylink.paylink.views.AccountType;
 import javafx.collections.FXCollections;
@@ -36,22 +37,12 @@ public class LoginController implements Initializable {
     }
 
     private void onPasswordCheckChanged(){
-        if(password_chk.isSelected()){
-            //show password
-            password_fld.setText(password_txt.getText());
-            password_fld.setVisible(true);
-            password_txt.setVisible(false);
-        }
-        else {
-            //Hide Password
-            password_txt.setText(password_fld.getText());
-            password_txt.setVisible(true);
-            password_fld.setVisible(false);
-        }
+        CreateClientController.passwordVisible(password_chk, password_fld, password_txt);
     }
 
     private void onLogin(){
         Stage stage = (Stage) error_lbl.getScene().getWindow();
+        boolean loginSuccess = false;
         if(Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT){
             //Evaluate Client Login Credentials
             if(password_chk.isSelected()){

@@ -19,7 +19,7 @@ public class ViewFactory {
     private AccountType loginAccountType;
 
     //Client views
-    private final ObjectProperty<ClientMenuOption> clientSelectedMenuItem;
+    private ObjectProperty<ClientMenuOption> clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionView;
     private AnchorPane accountsView;
@@ -28,7 +28,7 @@ public class ViewFactory {
     private AnchorPane createClientView;
     private AnchorPane clientsView;
     private AnchorPane depositView;
-    private final ObjectProperty<AdminMenuOption> adminSelectedMenuItem;
+    private ObjectProperty<AdminMenuOption> adminSelectedMenuItem;
 
     public ViewFactory(){
         this.loginAccountType = AccountType.CLIENT;
@@ -136,6 +136,19 @@ public class ViewFactory {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         createStage(loader);
 
+        resetState();
+    }
+
+    //Reset current states
+    private void resetState() {
+        this.clientSelectedMenuItem = new SimpleObjectProperty<>();
+        this.adminSelectedMenuItem = new SimpleObjectProperty<>();
+        this.dashboardView = null;
+        this.transactionView = null;
+        this.accountsView = null;
+        this.createClientView = null;
+        this.clientsView = null;
+        this.depositView = null;
     }
 
     public void showMessageWindow(String pAddress, String messageText){

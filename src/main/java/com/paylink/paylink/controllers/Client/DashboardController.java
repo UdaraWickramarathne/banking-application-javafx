@@ -5,7 +5,6 @@ import com.paylink.paylink.models.Transaction;
 import com.paylink.paylink.utils.CustomAlertBox;
 import com.paylink.paylink.utils.NotificationUtil;
 import com.paylink.paylink.views.TransactionCellFactory;
-import javafx.beans.binding.Binding;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -35,10 +34,16 @@ public class DashboardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         bindData();
         initLatestTransactionsList();
-        transaction_listview.setItems(Model.getInstance().getLatestTransactions());
-        transaction_listview.setCellFactory(e -> new TransactionCellFactory());
+        setTransaction_listview();
         send_money_btn.setOnAction(event -> onSendMoney());
         accountSummery();
+    }
+
+    private void setTransaction_listview(){
+        transaction_listview.getItems().clear();
+        initLatestTransactionsList();
+        transaction_listview.setItems(Model.getInstance().getLatestTransactions());
+        transaction_listview.setCellFactory(e -> new TransactionCellFactory());
     }
 
     private void bindData(){
@@ -93,6 +98,8 @@ public class DashboardController implements Initializable {
                         NotificationUtil.sendMail(sender,receiver,amount,Model.getInstance().getClient().emailAddressProperty().get(),"Sender");
 
                         CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Payment Successfully!", "Thank you for using our service. Your transaction has been successfully completed.");
+                        setTransaction_listview();
+
                     }
                     else {
                         CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Payment Failed!", "Insufficient balance for this transaction. Please enter a smaller amount.");

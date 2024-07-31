@@ -3,12 +3,12 @@ Text {
     -fx-font-family: 'Poppins';
 }
 .login-container {
-    -fx-background-color: #1E1E1E;
+    -fx-background-color: #121212;
 }
 
 /*Logo container styles*/
 .login-logo-container{
-    -fx-background-color: #2B2B2B;
+    -fx-background-color: #2d2d2d;
     -fx-alignment: center;
 }
 .login-logo-container Text {
@@ -48,6 +48,10 @@ Text {
 .choose-account-container Text{
     -fx-fill: #ababab;
     -fx-font-size: 1.2em;
+}
+
+.alt-bold-text {
+    -fx-font-weight: bold;
 }
 
 .choose-account-container ChoiceBox {
@@ -129,7 +133,7 @@ Text {
     -fx-background-color: #007BFF;
     -fx-font-weight: bold;
     -fx-text-fill: #FFFFFF;
-    -fx-pref-width: 150;
+    -fx-pref-width: 200;
     -fx-background-insets: 0, 1;
     -fx-background-radius: 20;
     -fx-border-radius: 3;

@@ -19,7 +19,7 @@
    <VBox prefHeight="550.0" prefWidth="300.0" styleClass="login-logo-container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Pane prefHeight="550.0" prefWidth="300.0">
          <HBox alignment="CENTER" prefHeight="228.0" prefWidth="300.0">
-            <ImageView fitHeight="164.0" fitWidth="169.0" pickOnBounds="true">
+            <ImageView fitHeight="164.0" fitWidth="164.0" pickOnBounds="true">
                <Image url="@../Images/logo.png" />
             </ImageView>
          </HBox>
@@ -41,9 +41,9 @@
          </HBox>
       </Pane>
    </VBox>
-   <VBox layoutX="539.0" layoutY="17.0" prefHeight="515.0" prefWidth="500.0" styleClass="login-form-container" stylesheets="@../Styles/Login.css" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="17.0">
+   <VBox layoutX="350.0" layoutY="30.0" prefHeight="488.0" prefWidth="500.0" styleClass="login-form-container" stylesheets="@../Styles/Login.css" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
       <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="440.0">
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="alt-bold-text" text="Welcome Back!" />
       </HBox>
       <HBox prefHeight="45.0" prefWidth="440.0" styleClass="choose-account-container">
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Your Account Type:" />
@@ -60,7 +60,7 @@
          <CheckBox fx:id="password_chk" mnemonicParsing="false" prefHeight="20.0" prefWidth="141.0" text="Show Password" />
       </HBox>
       <VBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" styleClass="login-forget-pane">
-         <Button fx:id="login_btn" mnemonicParsing="false" prefHeight="42.0" text="Login" />
+         <Button fx:id="login_btn" mnemonicParsing="false" prefHeight="42.0" prefWidth="454.0" text="Login" />
          <Label fx:id="forget_lbl" alignment="TOP_LEFT" text="Forget Password" />
          <Pane prefHeight="0.0" prefWidth="399.0" />
       </VBox>

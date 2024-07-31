@@ -50,6 +50,11 @@ public class DepositController implements Initializable {
     }
 
     private void onClientSearch(){
+        emptyFields();
+        textFieldDisable();
+        result_list.setVisible(false);
+        edit_btn.setVisible(false);
+        update_btn.setVisible(false);
         info_lbl.setText("");
         ObservableList<Client> searchResult = Model.getInstance().searchClient(pAddress_fld.getText());
         if(searchResult.isEmpty()){
@@ -90,7 +95,6 @@ public class DepositController implements Initializable {
     }
 
     private void emptyFields(){
-        pAddress_fld.setText("");
         amount_fld.setText("");
         fName_fld.setText("");
         lName_fld.setText("");
@@ -100,7 +104,6 @@ public class DepositController implements Initializable {
         ch_bal_fld.setText("");
         sv_bal_fld.setText("");
         sv_acc_num.setText("");
-        pAddress_fld.setText("");
     }
 
     private void textFieldDisable(){

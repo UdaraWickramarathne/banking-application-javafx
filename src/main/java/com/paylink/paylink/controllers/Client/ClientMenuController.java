@@ -52,5 +52,7 @@ public class ClientMenuController implements Initializable {
         Model.getInstance().getViewFactory().showLoginWindow();
         //Set Client Login Success Login Flag to false
         Model.getInstance().setClientLoginSuccessFlag(false);
+
+        Model.getInstance().reset();
     }
 }

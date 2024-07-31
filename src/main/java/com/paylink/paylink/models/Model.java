@@ -15,10 +15,10 @@ public class Model {
     private final DatabaseDriver databaseDriver;
 
     //Client Data Section
-    private final Client client;
+    private Client client;
     private boolean clientLoginSuccessFlag;
-    private final ObservableList<Transaction> latestTransactions;
-    private final ObservableList<Transaction> allTransactions;
+    private ObservableList<Transaction> latestTransactions;
+    private ObservableList<Transaction> allTransactions;
     //Admin Data Section
     private boolean adminLoginSuccessFlag;
     private final ObservableList<Client> clients;
@@ -115,6 +115,7 @@ public class Model {
     }
 
     public void setLatestTransactions(){
+        latestTransactions.clear();
         prepareTransactions(this.latestTransactions, 4);
     }
 
@@ -203,7 +204,6 @@ public class Model {
     }
 
 
-
     /*
 
     Utility Methods
@@ -252,5 +252,11 @@ public class Model {
         return account;
     }
 
+    // Reset client data
+    public void reset() {
+        this.client = new Client("","","",null,null, null, "");
+        this.latestTransactions = FXCollections.observableArrayList();
+        this.allTransactions = FXCollections.observableArrayList();
+    }
 
 }

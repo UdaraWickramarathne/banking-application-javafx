@@ -43,7 +43,7 @@ public class DatabaseDriver {
                 sql = "SELECT * FROM Transactions WHERE Sender = '" + pAddress + "' OR Receiver = '" + pAddress + "';";
             } else {
                 // Use limit
-                sql = "SELECT * FROM Transactions WHERE Sender = '" + pAddress + "' OR Receiver = '" + pAddress + "' ORDER BY Date DESC LIMIT " + limit + ";";
+                sql = "SELECT * FROM Transactions WHERE Sender = '" + pAddress + "' OR Receiver = '" + pAddress + "' ORDER BY ID DESC LIMIT " + limit + ";";
             }
             resultSet = statement.executeQuery(sql);
         }
