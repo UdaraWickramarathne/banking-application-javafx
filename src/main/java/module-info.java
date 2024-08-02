@@ -12,6 +12,10 @@ module com.paylink.paylink {
     requires eu.hansolo.tilesfx;
     requires java.sql;
     requires java.sdk;
+    requires java.desktop;
+    requires com.google.zxing;
+    requires com.google.zxing.javase;
+    requires javafx.swing;
 
     opens com.paylink.paylink to javafx.fxml;
     exports com.paylink.paylink;

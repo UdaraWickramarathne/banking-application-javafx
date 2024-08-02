@@ -3,5 +3,6 @@ package com.paylink.paylink.views;
 public enum ClientMenuOption {
     DASHBOARD,
     TRANSACTION,
-    ACCOUNTS
+    ACCOUNTS,
+    REQUEST
 }

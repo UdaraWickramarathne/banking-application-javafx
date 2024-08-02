@@ -23,6 +23,7 @@ public class ViewFactory {
     private AnchorPane dashboardView;
     private AnchorPane transactionView;
     private AnchorPane accountsView;
+    private AnchorPane requestView;
 
     //Admin views
     private AnchorPane createClientView;
@@ -77,6 +78,18 @@ public class ViewFactory {
             }catch (Exception e){e.printStackTrace();}
         }
         return accountsView;
+    }
+
+    public AnchorPane getRequestView() {
+        if(requestView == null){
+            try {
+                requestView = new FXMLLoader(getClass().getResource("/Fxml/Client/RequestMoney.fxml")).load();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return requestView;
     }
 
 
@@ -190,5 +203,6 @@ public class ViewFactory {
     public void closeStage(Stage stage){
         stage.close();
     }
+
 
 }

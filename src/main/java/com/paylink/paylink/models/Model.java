@@ -1,11 +1,15 @@
 package com.paylink.paylink.models;
 
-import com.paylink.paylink.views.AccountType;
+import com.google.zxing.WriterException;
+import com.paylink.paylink.utils.ImageConverter;
+import com.paylink.paylink.utils.QRCodeGenerator;
 import com.paylink.paylink.views.ViewFactory;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 
+
+import java.awt.image.BufferedImage;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 
@@ -257,6 +261,14 @@ public class Model {
         this.client = new Client("","","",null,null, null, "");
         this.latestTransactions = FXCollections.observableArrayList();
         this.allTransactions = FXCollections.observableArrayList();
+    }
+
+    public Image generateQRCode(String pAddress) throws WriterException {
+        String url = "http://13.50.2.79/index.php?pAddress=" + pAddress;
+        Image fxImage;
+        BufferedImage qrCodeImage = QRCodeGenerator.generateQRCodeImage(url);
+        fxImage = ImageConverter.convertToJavaFXImage(qrCodeImage);
+        return fxImage;
     }
 
 }

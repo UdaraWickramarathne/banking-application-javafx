@@ -1,0 +1,33 @@
+* {
+    -fx-font-family: Poppins;
+}
+
+.container {
+    -fx-background-color: #1E1E1E;
+}
+
+.title {
+    -fx-font-size: 1.8em;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.description {
+    -fx-font-size: 1.5em;
+    -fx-text-fill: #FFFFFF;
+}
+
+.container Button {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-pref-height: 30;
+    -fx-pref-width: 100;
+    -fx-background-radius: 10;
+}
+
+.link-copied-lbl {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+    -fx-text-fill: green;
+}

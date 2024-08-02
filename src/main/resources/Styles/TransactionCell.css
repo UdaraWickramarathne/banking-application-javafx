@@ -3,20 +3,20 @@
 }
 
 .cell-container {
-    -fx-background-color: #eeeeee;
+    -fx-background-color: #474b4b;
     -fx-background-radius: 10;
     -fx-border-width: 0;
    /* -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 7); */
 }
 
 .trans-icon-container {
-    -fx-background-color: #eeeeee;
+    -fx-background-color: #474b4b;
     -fx-alignment: center;
     -fx-spacing: 5;
 }
 
 .trans-date-lbl {
-    -fx-text-fill: #575757;
+    -fx-text-fill: #b4b4b4;
     -fx-font-weight: bold;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .message-button {
-    -fx-background-color: #eeeeee;
+    -fx-background-color: #474b4b;
 }
 
 .message-button FontAwesomeIconView {

@@ -14,10 +14,10 @@ public class ClientMenuController implements Initializable {
     public Button dashboard_btn;
     public Button transaction_btn;
     public Button account_btn;
-    public Button profile_btn;
     public Button logout_btn;
     public TextArea report_txt;
     public Button report_btn;
+    public Button request_btn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -29,6 +29,7 @@ public class ClientMenuController implements Initializable {
         transaction_btn.setOnAction(event -> onTransaction());
         account_btn.setOnAction(event -> onAccounts());
         logout_btn.setOnAction(event -> onLogout());
+        request_btn.setOnAction(event -> onRequest());
     }
 
     private void onDashboard(){
@@ -41,6 +42,10 @@ public class ClientMenuController implements Initializable {
 
     private void onAccounts(){
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.ACCOUNTS);
+    }
+
+    private void onRequest(){
+        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.REQUEST);
     }
 
     private void onLogout(){
