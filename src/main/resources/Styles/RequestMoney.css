@@ -6,6 +6,21 @@
     -fx-background-color: #1E1E1E;
 }
 
+.container Text {
+    -fx-fill: #8d8d8d;
+    -fx-font-size: 1.2em;
+}
+
+.container TextField {
+    -fx-background-color: #4b4f4f;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 5 10 5 10;
+    -fx-pref-height: 30;
+    -fx-font-weight: bold;
+}
+
 .title {
     -fx-font-size: 1.8em;
     -fx-text-fill: #FFFFFF;
@@ -14,7 +29,7 @@
 
 .description {
     -fx-font-size: 1.5em;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #8d8d8d;
 }
 
 .container Button {
@@ -22,8 +37,17 @@
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
     -fx-pref-height: 30;
-    -fx-pref-width: 100;
     -fx-background-radius: 10;
+}
+
+.reset-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 1;
+    -fx-border-color: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-pref-height: 30;
+    -fx-border-radius: 10;
 }
 
 .link-copied-lbl {

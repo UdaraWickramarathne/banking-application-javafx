@@ -20,16 +20,30 @@ public class DatabaseDriver {
      */
 
     public ResultSet getClientData(String pAddress, String password){
-        Statement statement;
         ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
         try {
-            statement = this.conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Clients WHERE PayeeAddress='"+pAddress+"' AND Password='"+password+"'");
+            String query = "SELECT * FROM Clients WHERE PayeeAddress = ?";
+            preparedStatement = this.conn.prepareStatement(query);
+            preparedStatement.setString(1,pAddress);
+            resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()){
+                String storedHash = resultSet.getString("Password");
+
+                if(Model.getInstance().compareHash(password, storedHash)){
+                    return resultSet;
+                }
+                else {
+                    return null;
+                }
+            }
+
         }
         catch (SQLException e){
             e.printStackTrace();
         }
-        return  resultSet;
+        return  null;
     }
 
     public ResultSet getTransaction(String pAddress, int limit){
@@ -127,12 +141,41 @@ public class DatabaseDriver {
 
      */
 
-    public ResultSet getAdminData(String username, String password){
-        Statement statement;
-        ResultSet resultSet = null;
+    public void createNewAdmin(String username, String password){
+        PreparedStatement statement;
+        String hashPassword = Model.getInstance().hashText(password);
+        String sql = "INSERT INTO Admins(Username, Password) VALUES (?, ?)";
         try {
-            statement = this.conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Admins WHERE Username='"+username+"' AND Password='"+password+"'");
+            statement = this.conn.prepareStatement(sql);
+            statement.setString(1,username);
+            statement.setString(2,hashPassword);
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet getAdminData(String username, String password){
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            String query = "SELECT * FROM Admins WHERE Username = ?";
+            preparedStatement = this.conn.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()){
+                String storedHash = resultSet.getString("Password");
+
+                if(Model.getInstance().compareHash(password, storedHash)){
+                    return resultSet;
+                }
+                else {
+                    return null;
+                }
+            }
+
         }
         catch (SQLException e){
             e.printStackTrace();
@@ -143,13 +186,14 @@ public class DatabaseDriver {
 
     public void createClient(String fName, String lName, String pAddress, String password, LocalDate date, String email){
         PreparedStatement statement;
+        String hashPassword = Model.getInstance().hashText(password);
         String sql = "INSERT INTO Clients(FirstName, LastName, PayeeAddress, Password, Date, Email) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             statement = this.conn.prepareStatement(sql);
             statement.setString(1, fName);
             statement.setString(2, lName);
             statement.setString(3, pAddress);
-            statement.setString(4, password);
+            statement.setString(4, hashPassword);
             statement.setString(5, date.toString());
             statement.setString(6, email);
             statement.executeUpdate();

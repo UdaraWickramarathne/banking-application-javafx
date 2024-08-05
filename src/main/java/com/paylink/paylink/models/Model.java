@@ -7,23 +7,29 @@ import com.paylink.paylink.views.ViewFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
+import org.mindrot.jbcrypt.BCrypt;
 
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import java.awt.image.BufferedImage;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.Base64;
 
 public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     private final DatabaseDriver databaseDriver;
 
-    //Client Data Section
+    //Client Data Section ///////////////////////////////////////////////////////////////////////////////////////////////
     private Client client;
     private boolean clientLoginSuccessFlag;
     private ObservableList<Transaction> latestTransactions;
     private ObservableList<Transaction> allTransactions;
-    //Admin Data Section
+    private String url;
+
+    //Admin Data Section ///////////////////////////////////////////////////////////////////////////////////////////////
     private boolean adminLoginSuccessFlag;
     private final ObservableList<Client> clients;
 
@@ -57,9 +63,9 @@ public class Model {
         return databaseDriver;
     }
 
-    /*
-    Client Method Section
-     */
+
+    // Client Method Section ///////////////////////////////////////////////////////////////////////////////////////////////
+
 
     public boolean getClientLoginSuccessFlag(){
         return this.clientLoginSuccessFlag;
@@ -80,20 +86,18 @@ public class Model {
         ResultSet resultSet = databaseDriver.getClientData(pAddress,password);
 
         try {
-            if (resultSet.next()){
-                this.client.firstNameProperty().set(resultSet.getString("FirstName"));
-                this.client.lastNameProperty().set(resultSet.getString("LastName"));
-                this.client.payeeAddressProperty().set(resultSet.getString("PayeeAddress"));
-                this.client.emailAddressProperty().set(resultSet.getString("Email"));
-                String[] dateParts = resultSet.getString("Date").split("-");
-                LocalDate date = LocalDate.of(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
-                this.client.dateCreatedProperty().set(date);
-                checkingAccount = getCheckingAccount(pAddress);
-                savingsAccount = getSavingsAccount(pAddress);
-                this.client.checkingAccountProperty().set(checkingAccount);
-                this.client.savingsAccountProperty().set(savingsAccount);
-                this.clientLoginSuccessFlag = true;
-            }
+            this.client.firstNameProperty().set(resultSet.getString("FirstName"));
+            this.client.lastNameProperty().set(resultSet.getString("LastName"));
+            this.client.payeeAddressProperty().set(resultSet.getString("PayeeAddress"));
+            this.client.emailAddressProperty().set(resultSet.getString("Email"));
+            String[] dateParts = resultSet.getString("Date").split("-");
+            LocalDate date = LocalDate.of(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
+            this.client.dateCreatedProperty().set(date);
+            checkingAccount = getCheckingAccount(pAddress);
+            savingsAccount = getSavingsAccount(pAddress);
+            this.client.checkingAccountProperty().set(checkingAccount);
+            this.client.savingsAccountProperty().set(savingsAccount);
+            this.clientLoginSuccessFlag = true;
         }
         catch (Exception e){
             e.printStackTrace();
@@ -135,9 +139,9 @@ public class Model {
         return allTransactions;
     }
 
-    /*
-    Admin Method Section
-     */
+
+    //Admin Method Section ///////////////////////////////////////////////////////////////////////////////////////////////
+
 
     public boolean getAdminLoginSuccessFlag() {
         return adminLoginSuccessFlag;
@@ -150,7 +154,7 @@ public class Model {
     public void evaluateAdminCred(String username, String password){
         ResultSet resultSet = databaseDriver.getAdminData(username, password);
         try {
-            if (resultSet.next()){
+            if (!resultSet.wasNull()){
                 this.adminLoginSuccessFlag = true;
             }
         }
@@ -207,12 +211,8 @@ public class Model {
         return searchResults;
     }
 
+    //Utility Methods  ///////////////////////////////////////////////////////////////////////////////////////////////
 
-    /*
-
-    Utility Methods
-
-     */
 
     public CheckingAccount getCheckingAccount(String pAddress){
         CheckingAccount account = null;
@@ -256,19 +256,67 @@ public class Model {
         return account;
     }
 
-    // Reset client data
+    // Reset client data  ///////////////////////////////////////////////////////////////////////////////////////////////
+
+
     public void reset() {
         this.client = new Client("","","",null,null, null, "");
         this.latestTransactions = FXCollections.observableArrayList();
         this.allTransactions = FXCollections.observableArrayList();
     }
 
-    public Image generateQRCode(String pAddress) throws WriterException {
-        String url = "http://13.50.2.79/index.php?pAddress=" + pAddress;
+
+    // QR code generate method /////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    public Image generateQRCode(String pAddress, Double amount) throws WriterException {
+
+        String encryptedAddress = null;
+        String encryptedAmount = null;
+        try {
+            encryptedAddress = encrypt(pAddress);
+            encryptedAmount = encrypt(Double.toString(amount));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        url = "http://localhost/PHP%20Practicals/PayLink/index.php?pAddress=" + encryptedAddress + "&amount=" +encryptedAmount;
         Image fxImage;
         BufferedImage qrCodeImage = QRCodeGenerator.generateQRCodeImage(url);
         fxImage = ImageConverter.convertToJavaFXImage(qrCodeImage);
         return fxImage;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    // Data encrypt methods //////////////////////////////////////////////////////////////////////////////////////////
+
+    public String hashText(String plainText){
+        String salt = BCrypt.gensalt(12);
+        return BCrypt.hashpw(plainText, salt);
+    }
+
+    public boolean compareHash(String plainText, String hashText){
+        return BCrypt.checkpw(plainText, hashText);
+    }
+
+    // Data encrypt for pass the website
+
+    public String encrypt(String value) throws Exception{
+        String ALGORITHM = "AES";
+        String TRANSFORMATION = "AES/CBC/PKCS5Padding";
+        String SECRET_KEY = "0123456789abcdef";
+        String INIT_VECTOR = "RandomInitVector";
+
+        SecretKeySpec secretKeySpec = new SecretKeySpec(SECRET_KEY.getBytes(), ALGORITHM);
+        Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, new javax.crypto.spec.IvParameterSpec(INIT_VECTOR.getBytes()));
+        byte[] encrypted = cipher.doFinal(value.getBytes());
+        return Base64.getEncoder().encodeToString(encrypted);
+
+    }
 }

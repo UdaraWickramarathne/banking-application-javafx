@@ -16,6 +16,7 @@ module com.paylink.paylink {
     requires com.google.zxing;
     requires com.google.zxing.javase;
     requires javafx.swing;
+    requires jbcrypt;
 
     opens com.paylink.paylink to javafx.fxml;
     exports com.paylink.paylink;
