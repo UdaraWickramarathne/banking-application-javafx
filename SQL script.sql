@@ -119,6 +119,10 @@ VALUES ('admin', '123');
 INSERT INTO Transactions (Sender, Receiver, Amount, Date, Message)
 VALUES ('@uWick3', 'tBaker2', 150.75, '2024-07-25', 'Payment for services');
 
+DELETE FROM Transactions;
+
+
+ALTER TABLE Transactions AUTO_INCREMENT = 1;
 
 
 

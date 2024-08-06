@@ -94,8 +94,11 @@ public class DashboardController implements Initializable {
                         //Send email for receiver
                         NotificationUtil.sendMail(sender,receiver,amount,resultSet.getString("Email"),"Receiver");
 
+
+                        //I removed because my Email free plan limit is reached
+
                         //Send email for Sender
-                        NotificationUtil.sendMail(sender,receiver,amount,Model.getInstance().getClient().emailAddressProperty().get(),"Sender");
+                        //NotificationUtil.sendMail(sender,receiver,amount,Model.getInstance().getClient().emailAddressProperty().get(),"Sender");
 
                         CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Payment Successfully!", "Thank you for using our service. Your transaction has been successfully completed.");
                         setTransaction_listview();

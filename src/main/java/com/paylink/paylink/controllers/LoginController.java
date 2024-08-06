@@ -27,6 +27,8 @@ public class LoginController implements Initializable {
         choice_box.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
         choice_box.valueProperty().addListener(observable -> setChoice_box());
         login_btn.setOnAction(event -> onLogin());
+        forget_lbl.setOnMouseClicked(mouseEvent -> onForgotPassword());
+
 
         //Handling password field
         password_fld.setVisible(false);
@@ -93,5 +95,9 @@ public class LoginController implements Initializable {
         else {
             payee_address_fld.setPromptText("Payee Address");
         }
+    }
+
+    private void onForgotPassword() {
+        Model.getInstance().getViewFactory().showResetPasswordView();
     }
 }

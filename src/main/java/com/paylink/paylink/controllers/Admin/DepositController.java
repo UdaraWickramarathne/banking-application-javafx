@@ -44,6 +44,11 @@ public class DepositController implements Initializable {
         edit_btn.setVisible(false);
         update_btn.setVisible(false);
         textFieldDisable();
+        amount_fld.setVisible(false);
+        deposit_btn.setVisible(false);
+
+
+        //Button methods
         edit_btn.setOnAction(event -> textFieldEnable());
         update_btn.setOnAction(event -> updateDetails());
 
@@ -63,6 +68,8 @@ public class DepositController implements Initializable {
             info_lbl.setText("No client found with the provided payee address.");
         }
         else {
+            amount_fld.setVisible(true);
+            deposit_btn.setVisible(true);
             result_list.setVisible(true);
             edit_btn.setVisible(true);
             update_btn.setVisible(true);

@@ -49,6 +49,9 @@ public class ClientCellController implements Initializable {
             Model.getInstance().getDatabaseDriver().deleteAccounts(pAddress_lbl.getText(), "SavingsAccounts");
 
             CustomAlertBox.showAlert(Alert.AlertType.INFORMATION,"Delete successfully ","The client has been successfully deleted from the system.");
+
+            Model.getInstance().getClients().clear();
+            Model.getInstance().setClients();
         }
     }
 }

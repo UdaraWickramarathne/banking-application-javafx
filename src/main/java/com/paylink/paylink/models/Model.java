@@ -13,6 +13,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.awt.image.BufferedImage;
+import java.security.SecureRandom;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.Base64;
@@ -32,6 +33,10 @@ public class Model {
     //Admin Data Section ///////////////////////////////////////////////////////////////////////////////////////////////
     private boolean adminLoginSuccessFlag;
     private final ObservableList<Client> clients;
+
+    //Utility Data section /////////////////////////////////////////////////////////////////////////////////////////////
+    private final SecureRandom random = new SecureRandom();
+    private String verificationCode;
 
     private Model() {
         this.databaseDriver = new DatabaseDriver();
@@ -86,18 +91,20 @@ public class Model {
         ResultSet resultSet = databaseDriver.getClientData(pAddress,password);
 
         try {
-            this.client.firstNameProperty().set(resultSet.getString("FirstName"));
-            this.client.lastNameProperty().set(resultSet.getString("LastName"));
-            this.client.payeeAddressProperty().set(resultSet.getString("PayeeAddress"));
-            this.client.emailAddressProperty().set(resultSet.getString("Email"));
-            String[] dateParts = resultSet.getString("Date").split("-");
-            LocalDate date = LocalDate.of(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
-            this.client.dateCreatedProperty().set(date);
-            checkingAccount = getCheckingAccount(pAddress);
-            savingsAccount = getSavingsAccount(pAddress);
-            this.client.checkingAccountProperty().set(checkingAccount);
-            this.client.savingsAccountProperty().set(savingsAccount);
-            this.clientLoginSuccessFlag = true;
+            if(resultSet != null){
+                this.client.firstNameProperty().set(resultSet.getString("FirstName"));
+                this.client.lastNameProperty().set(resultSet.getString("LastName"));
+                this.client.payeeAddressProperty().set(resultSet.getString("PayeeAddress"));
+                this.client.emailAddressProperty().set(resultSet.getString("Email"));
+                String[] dateParts = resultSet.getString("Date").split("-");
+                LocalDate date = LocalDate.of(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
+                this.client.dateCreatedProperty().set(date);
+                checkingAccount = getCheckingAccount(pAddress);
+                savingsAccount = getSavingsAccount(pAddress);
+                this.client.checkingAccountProperty().set(checkingAccount);
+                this.client.savingsAccountProperty().set(savingsAccount);
+                this.clientLoginSuccessFlag = true;
+            }
         }
         catch (Exception e){
             e.printStackTrace();
@@ -140,6 +147,7 @@ public class Model {
     }
 
 
+
     //Admin Method Section ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -154,7 +162,7 @@ public class Model {
     public void evaluateAdminCred(String username, String password){
         ResultSet resultSet = databaseDriver.getAdminData(username, password);
         try {
-            if (!resultSet.wasNull()){
+            if (resultSet != null){
                 this.adminLoginSuccessFlag = true;
             }
         }
@@ -318,5 +326,20 @@ public class Model {
         byte[] encrypted = cipher.doFinal(value.getBytes());
         return Base64.getEncoder().encodeToString(encrypted);
 
+    }
+
+    // Generate Verification code
+
+    public  void generateVerificationCode() {
+
+        // Generate a random integer between 0 and 999999
+        int code = random.nextInt(999999);
+
+        // Format the integer to ensure it's always 6 digits
+        verificationCode = String.format("%06d", code);
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
     }
 }

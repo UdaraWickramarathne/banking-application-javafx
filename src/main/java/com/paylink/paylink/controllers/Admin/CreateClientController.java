@@ -138,7 +138,7 @@ public class CreateClientController implements Initializable {
         }
 
         //Create savings account
-        if(ch_amount_fld.getText().isEmpty()){
+        if(sv_amount_fld.getText().isEmpty()){
             CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Please enter Savings Account amount.");
             return;
         }
@@ -157,6 +157,8 @@ public class CreateClientController implements Initializable {
         error_lbl.setStyle("-fx-text-fill: #28A745; -fx-font-weight: bold; -fx-font-size: 1.3em;");
         error_lbl.setText("Client Created Successfully!");
         emptyFields();
+        onCheckingAccountChkChange();
+        onSavingAccountChkChange();
     }
 
     private void createAccount(String accountType){

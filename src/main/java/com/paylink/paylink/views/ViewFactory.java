@@ -31,6 +31,9 @@ public class ViewFactory {
     private AnchorPane depositView;
     private ObjectProperty<AdminMenuOption> adminSelectedMenuItem;
 
+    //Reset password
+    private Stage passwordStage;
+
     public ViewFactory(){
         this.loginAccountType = AccountType.CLIENT;
         this.clientSelectedMenuItem = new SimpleObjectProperty<>();
@@ -165,6 +168,7 @@ public class ViewFactory {
     }
 
     public void showMessageWindow(String pAddress, String messageText){
+
         StackPane pane = new StackPane();
         HBox hBox = new HBox(5);
         hBox.setAlignment(Pos.CENTER);
@@ -181,8 +185,8 @@ public class ViewFactory {
         stage.setTitle("Message");
         stage.setScene(scene);
         stage.show();
-    }
 
+    }
 
 
     private void createStage(FXMLLoader loader) {
@@ -202,6 +206,54 @@ public class ViewFactory {
 
     public void closeStage(Stage stage){
         stage.close();
+    }
+
+
+    // Reset password and change password methods
+
+    public void showResetPasswordView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Utils/ResetPassword.fxml"));
+            AnchorPane root = loader.load();
+            passwordStage = new Stage();
+            passwordStage.setScene(new Scene(root));
+            passwordStage.setTitle("Reset Password");
+            passwordStage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/logo.png"))));
+            passwordStage.initModality(Modality.APPLICATION_MODAL);
+            passwordStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showChangePasswordView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Utils/ChangePassword.fxml"));
+            AnchorPane root = loader.load();
+            passwordStage = new Stage();
+            passwordStage.setScene(new Scene(root));
+            passwordStage.setTitle("Change Password");
+            passwordStage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/logo.png"))));
+            passwordStage.initModality(Modality.APPLICATION_MODAL);
+            passwordStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showVerifyCode() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Utils/VerifyCode.fxml"));
+            AnchorPane root = loader.load();
+            passwordStage = new Stage();
+            passwordStage.setScene(new Scene(root));
+            passwordStage.setTitle("Change Password");
+            passwordStage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/logo.png"))));
+            passwordStage.initModality(Modality.APPLICATION_MODAL);
+            passwordStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

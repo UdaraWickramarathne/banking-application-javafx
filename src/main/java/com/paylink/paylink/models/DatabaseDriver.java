@@ -66,6 +66,22 @@ public class DatabaseDriver {
         }
         return resultSet;
     }
+
+    public ResultSet getClientEmail(String pAddress){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT Email FROM Clients WHERE PayeeAddress = '"+pAddress+"';");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+
+
     //Method returns savings account Balance
 
     public double savingAccountBalance(String pAddress){
@@ -180,7 +196,7 @@ public class DatabaseDriver {
         catch (SQLException e){
             e.printStackTrace();
         }
-        return resultSet;
+        return  null;
 
     }
 
