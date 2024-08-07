@@ -131,6 +131,7 @@ public class Model {
         }
     }
 
+
     public void setLatestTransactions(){
         latestTransactions.clear();
         prepareTransactions(this.latestTransactions, 4);
