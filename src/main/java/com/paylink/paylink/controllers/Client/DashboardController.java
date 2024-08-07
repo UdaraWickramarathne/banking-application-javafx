@@ -102,6 +102,7 @@ public class DashboardController implements Initializable {
 
                         CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Payment Successfully!", "Thank you for using our service. Your transaction has been successfully completed.");
                         setTransaction_listview();
+                        accountSummery();
 
                     }
                     else {
@@ -127,9 +128,7 @@ public class DashboardController implements Initializable {
     private void accountSummery(){
         double income = 0;
         double expenses = 0;
-        if(Model.getInstance().getAllTransactions().isEmpty()){
-            Model.getInstance().setAllTransactions();
-        }
+        Model.getInstance().setAllTransactions();
         for (Transaction transaction : Model.getInstance().getAllTransactions()){
             if (transaction.senderProperty().get().equals(Model.getInstance().getClient().payeeAddressProperty().get())){
                 expenses = expenses + transaction.amountProperty().get();

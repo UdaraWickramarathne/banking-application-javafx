@@ -13,6 +13,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.awt.image.BufferedImage;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.sql.ResultSet;
 import java.time.LocalDate;
@@ -139,6 +141,7 @@ public class Model {
     }
 
     public void setAllTransactions(){
+        allTransactions = FXCollections.observableArrayList();
         prepareTransactions(this.allTransactions, -1);
     }
 
@@ -279,18 +282,26 @@ public class Model {
 
 
     public Image generateQRCode(String pAddress, Double amount) throws WriterException {
-
         String encryptedAddress = null;
         String encryptedAmount = null;
         try {
             encryptedAddress = encrypt(pAddress);
             encryptedAmount = encrypt(Double.toString(amount));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (Exception e){
+        System.out.println(pAddress + "xxx" + encryptedAddress);
+
+        try {
+            // URL encode the encrypted parameters
+            String encodedAddress = URLEncoder.encode(encryptedAddress, StandardCharsets.UTF_8.toString());
+            String encodedAmount = URLEncoder.encode(encryptedAmount, StandardCharsets.UTF_8.toString());
+
+            url = "http://16.171.159.175/index.php?pAddress=" + encodedAddress + "&amount=" + encodedAmount;
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        url = "http://localhost/PHP%20Practicals/PayLink/index.php?pAddress=" + encryptedAddress + "&amount=" +encryptedAmount;
         Image fxImage;
         BufferedImage qrCodeImage = QRCodeGenerator.generateQRCodeImage(url);
         fxImage = ImageConverter.convertToJavaFXImage(qrCodeImage);
