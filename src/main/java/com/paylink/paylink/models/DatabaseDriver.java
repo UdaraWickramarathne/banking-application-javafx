@@ -386,4 +386,17 @@ public class DatabaseDriver {
         }
     }
 
+    public void updatePassword(String password, String payeeAddress){
+        PreparedStatement statement;
+        String sql = "UPDATE Clients SET Password = ? WHERE PayeeAddress = ?";
+        try {
+            statement = this.conn.prepareStatement(sql);
+            statement.setString(1,password);
+            statement.setString(2,payeeAddress);
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
