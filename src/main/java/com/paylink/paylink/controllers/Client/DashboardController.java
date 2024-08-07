@@ -102,6 +102,7 @@ public class DashboardController implements Initializable {
 
                         CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Payment Successfully!", "Thank you for using our service. Your transaction has been successfully completed.");
                         setTransaction_listview();
+                        accountSummery();
 
                     }
                     else {

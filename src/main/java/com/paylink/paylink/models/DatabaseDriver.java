@@ -80,7 +80,19 @@ public class DatabaseDriver {
         return resultSet;
     }
 
-
+    public void updatePassword(String password, String payeeAddress){
+        PreparedStatement statement;
+        String sql = "UPDATE Clients SET Password = ? WHERE PayeeAddress = ?";
+        try {
+            statement = this.conn.prepareStatement(sql);
+            statement.setString(1,password);
+            statement.setString(2,payeeAddress);
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 
     //Method returns savings account Balance
 
@@ -150,6 +162,8 @@ public class DatabaseDriver {
             e.printStackTrace();
         }
     }
+
+
 
 
     /*

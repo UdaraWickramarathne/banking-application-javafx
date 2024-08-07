@@ -1,6 +1,7 @@
 package com.paylink.paylink.controllers.Utils;
 
 import com.paylink.paylink.models.Model;
+import com.paylink.paylink.models.SharedData;
 import com.paylink.paylink.utils.CustomAlertBox;
 import com.paylink.paylink.utils.NotificationUtil;
 import javafx.fxml.Initializable;
@@ -35,6 +36,10 @@ public class ResetPasswordController implements Initializable {
                 String email = resultSet.getString("Email");
                 Model.getInstance().generateVerificationCode();
                 NotificationUtil.sendVerification(email, payee, Model.getInstance().getVerificationCode());
+
+                //Set payee in the shared model
+                SharedData.getInstance().setPayee(payee);
+
                 Stage stage = (Stage) send_code_btn.getScene().getWindow();
                 stage.close();
 
