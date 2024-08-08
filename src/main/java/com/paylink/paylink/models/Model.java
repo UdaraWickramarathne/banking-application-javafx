@@ -1,6 +1,7 @@
 package com.paylink.paylink.models;
 
 import com.google.zxing.WriterException;
+import com.paylink.paylink.controllers.Client.TransactionController;
 import com.paylink.paylink.utils.ImageConverter;
 import com.paylink.paylink.utils.QRCodeGenerator;
 import com.paylink.paylink.views.ViewFactory;
@@ -39,6 +40,7 @@ public class Model {
     //Utility Data section /////////////////////////////////////////////////////////////////////////////////////////////
     private final SecureRandom random = new SecureRandom();
     private String verificationCode;
+
 
     private Model() {
         this.databaseDriver = new DatabaseDriver();
@@ -112,6 +114,7 @@ public class Model {
             e.printStackTrace();
         }
     }
+
 
     private void prepareTransactions(ObservableList<Transaction> transactions, int limit){
         ResultSet resultSet = databaseDriver.getTransaction(this.client.payeeAddressProperty().get(), limit);
@@ -267,6 +270,7 @@ public class Model {
         return account;
     }
 
+
     // Reset client data  ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -280,7 +284,6 @@ public class Model {
     // QR code generate method /////////////////////////////////////////////////////////////////////////////////////////
 
 
-
     public Image generateQRCode(String pAddress, Double amount) throws WriterException {
         String encryptedAddress = null;
         String encryptedAmount = null;
@@ -290,7 +293,7 @@ public class Model {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(pAddress + "xxx" + encryptedAddress);
+//        System.out.println(pAddress + "xxx" + encryptedAddress);
 
         try {
             // URL encode the encrypted parameters

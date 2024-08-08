@@ -19,6 +19,7 @@ public class ClientMenuController implements Initializable {
     public Button report_btn;
     public Button request_btn;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addListeners();

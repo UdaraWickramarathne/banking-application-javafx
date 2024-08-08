@@ -131,6 +131,35 @@ public class DatabaseDriver {
         return rows;
     }
 
+    public int updateCheckingBalance(String pAddress, double amount, String operation) {
+        Statement statement;
+        ResultSet resultSet = null;
+        int rows = 0;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM CheckingAccounts WHERE Owner = '"+pAddress+"';");
+            if(resultSet.next()){
+                double newBalance;
+                if(operation.equals("ADD")){
+                    newBalance = resultSet.getDouble("Balance") + amount;
+                    rows = statement.executeUpdate("UPDATE CheckingAccounts SET Balance = "+newBalance+" WHERE Owner = '"+pAddress+"'");
+                }
+                else {
+                    if(resultSet.getDouble("Balance") >= amount){
+                        newBalance = resultSet.getDouble("Balance") - amount;
+                        rows = statement.executeUpdate("UPDATE CheckingAccounts SET Balance = "+newBalance+" WHERE Owner = '"+pAddress+"'");
+                    }
+                }
+            }
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return rows;
+    }
+
+
+
     //  Creates and record  new transaction
 
     public void newTransaction(String sender, String receiver, double amount, String message){

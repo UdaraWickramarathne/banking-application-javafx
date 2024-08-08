@@ -21,3 +21,16 @@
     -fx-background-color: #1E1E1E;
     -fx-pref-width: 800;
 }
+.transaction-container .list-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #9a9a9a;
+}
+
+.transaction-container .list-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #9a9a9a;
+}
+
+
+.transaction-container .list-view .scroll-bar:vertical .track,
+.transaction-container .list-view .scroll-bar:horizontal .track {
+    -fx-background-color: #2d2d2d;
+}
