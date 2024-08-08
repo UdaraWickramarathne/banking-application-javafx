@@ -32,6 +32,7 @@ public class AccountsController implements Initializable {
         amount_to_sv.setTextFormatter(textFormatter1);
         amount_to_ch.setTextFormatter(textFormatter2);
         trans_to_sv_btn.setOnAction(event -> onCheckingToSaving());
+        trans_to_ch_btn.setOnAction(event -> onSavingToChecking());
 
     }
 
@@ -64,8 +65,29 @@ public class AccountsController implements Initializable {
         else {
             CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Payment Failed!", "Insufficient balance for this transaction. Please enter a smaller amount.");
         }
+    }
 
+    public void onSavingToChecking(){
+        if(amount_to_ch.getText().isEmpty()){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Field is Empty!", "You must fill the Amount Field!");
+            return;
+        }
+        double savingAcc = Double.parseDouble(sv_acc_bal.getText());
+        double transferAmount = Double.parseDouble(amount_to_ch.getText());
 
+        if(transferAmount < savingAcc){
+            //Adding to checking account
+            Model.getInstance().getDatabaseDriver().updateCheckingBalance(Model.getInstance().getClient().payeeAddressProperty().get(),transferAmount,"ADD");
+
+            //Subtract from savings account
+            Model.getInstance().getDatabaseDriver().updateBalance(Model.getInstance().getClient().payeeAddressProperty().get(),transferAmount,"SUB");
+
+            CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Money Transfer success!", "Money transfer success. It will update soon!");
+            amount_to_ch.setText("");
+        }
+        else {
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Payment Failed!", "Insufficient balance for this transaction. Please enter a smaller amount.");
+        }
     }
 
     UnaryOperator<TextFormatter.Change> filter = change -> {
