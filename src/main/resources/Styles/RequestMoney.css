@@ -40,7 +40,7 @@
     -fx-pref-width: 130;
 }
 .container Button:hover {
-    -fx-background-color: #005ab6;
+    -fx-background-color: #2d94ff;
     -fx-cursor: hand;
 }
 
@@ -57,6 +57,7 @@
 
 .reset-btn:hover {
     -fx-background-color: #007BFF;
+    -fx-cursor: hand;
 }
 
 .link-copied-lbl {

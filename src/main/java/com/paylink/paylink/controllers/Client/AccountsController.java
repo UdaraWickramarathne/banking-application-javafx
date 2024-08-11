@@ -61,6 +61,8 @@ public class AccountsController implements Initializable {
 
             CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Money Transfer success!", "Money transfer success. It will update soon!");
             amount_to_sv.setText("");
+            Model.getInstance().updateClient();
+            setData();
         }
         else {
             CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Payment Failed!", "Insufficient balance for this transaction. Please enter a smaller amount.");
@@ -84,6 +86,8 @@ public class AccountsController implements Initializable {
 
             CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Money Transfer success!", "Money transfer success. It will update soon!");
             amount_to_ch.setText("");
+            Model.getInstance().updateClient();
+            setData();
         }
         else {
             CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Payment Failed!", "Insufficient balance for this transaction. Please enter a smaller amount.");

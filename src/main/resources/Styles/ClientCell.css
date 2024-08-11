@@ -3,13 +3,13 @@
 }
 
 .client-cell-container {
-    -fx-background-color: #b2b2b2;
+    -fx-background-color: #474b4b;
     -fx-background-radius: 10;
    /* -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 7); */
 }
 
 .client-cell-container FontAwesomeIconView {
-    -fx-fill: #091623;
+    -fx-fill: #000000;
 }
 
 .client-cell-container HBox {
@@ -18,7 +18,7 @@
 }
 
 .client-cell-container HBox Label {
-    -fx-text-fill: #444444;
+    -fx-text-fill: #ffffff;
     -fx-font-size: 1.3em;
 }
 
@@ -29,10 +29,10 @@
 
 .delete-btn {
     -fx-text-fill: #FFFFFF;
-    -fx-background-color: red;
+    -fx-background-color: #a90000;
 }
 
 .delete-btn:hover {
     -fx-cursor: hand;
-    -fx-background-color: #b40000;
+    -fx-background-color: #ff0000;
 }

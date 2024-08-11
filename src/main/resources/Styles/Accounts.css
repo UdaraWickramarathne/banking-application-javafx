@@ -52,5 +52,11 @@
 
 .account-view-container Button:hover {
     -fx-cursor: hand;
-    -fx-background-color: linear-gradient(to right, #007BFF, #3896fc);
+    -fx-text-fill: #007BFF;
+    -fx-background-color: #FFFFFF;
+    /*-fx-background-color: linear-gradient(to right, #007BFF, #3896fc); */
+}
+
+.account-view-container Button:hover FontAwesomeIconView {
+    -fx-fill: #007BFF;
 }

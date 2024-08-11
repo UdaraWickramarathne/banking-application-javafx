@@ -18,8 +18,8 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/ClientDashboard.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.paylink.paylink.controllers.Client.DashboardController">
-   <Text fx:id="username" layoutX="19.0" layoutY="47.7599983215332" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="username" text="Hi, Udara" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="30.0" />
-   <Label fx:id="login_date" layoutX="684.0" layoutY="30.0" styleClass="title" text="Today, 2022-07-06" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="30.0" />
+   <Text fx:id="username" layoutX="19.0" layoutY="44.7599983215332" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="username" text="Hi, Udara" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="12.0" />
+   <Label fx:id="login_date" layoutX="228.0" layoutY="24.0" styleClass="title" text="Today, 2022-07-06" AnchorPane.rightAnchor="482.0" AnchorPane.topAnchor="24.0" />
    <Text layoutX="18.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="My Accounts" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" />
    <Text layoutX="676.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Accounts Summary" AnchorPane.rightAnchor="26.342391967773438" AnchorPane.topAnchor="90.0" />
    <HBox layoutX="20.0" layoutY="124.0" prefHeight="217.0" prefWidth="509.0" styleClass="card-container" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="124.0">
@@ -96,4 +96,5 @@
       </VBox>
       <Button fx:id="send_money_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="241.0" text="Send Money" />
    </VBox>
+   <Button fx:id="refresh_btn" layoutX="704.0" layoutY="18.0" mnemonicParsing="false" styleClass="refresh" text="Refresh" />
 </AnchorPane>

@@ -18,6 +18,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Base64;
 
@@ -35,7 +36,7 @@ public class Model {
 
     //Admin Data Section ///////////////////////////////////////////////////////////////////////////////////////////////
     private boolean adminLoginSuccessFlag;
-    private final ObservableList<Client> clients;
+    private ObservableList<Client> clients;
 
     //Utility Data section /////////////////////////////////////////////////////////////////////////////////////////////
     private final SecureRandom random = new SecureRandom();
@@ -96,18 +97,40 @@ public class Model {
 
         try {
             if(resultSet != null){
-                this.client.firstNameProperty().set(resultSet.getString("FirstName"));
-                this.client.lastNameProperty().set(resultSet.getString("LastName"));
-                this.client.payeeAddressProperty().set(resultSet.getString("PayeeAddress"));
-                this.client.emailAddressProperty().set(resultSet.getString("Email"));
-                String[] dateParts = resultSet.getString("Date").split("-");
-                LocalDate date = LocalDate.of(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
-                this.client.dateCreatedProperty().set(date);
-                checkingAccount = getCheckingAccount(pAddress);
-                savingsAccount = getSavingsAccount(pAddress);
-                this.client.checkingAccountProperty().set(checkingAccount);
-                this.client.savingsAccountProperty().set(savingsAccount);
+                getClientData(pAddress, resultSet);
                 this.clientLoginSuccessFlag = true;
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void getClientData(String pAddress, ResultSet resultSet) throws SQLException {
+        CheckingAccount checkingAccount;
+        SavingsAccount savingsAccount;
+        this.client.firstNameProperty().set(resultSet.getString("FirstName"));
+        this.client.lastNameProperty().set(resultSet.getString("LastName"));
+        this.client.payeeAddressProperty().set(resultSet.getString("PayeeAddress"));
+        this.client.emailAddressProperty().set(resultSet.getString("Email"));
+        String[] dateParts = resultSet.getString("Date").split("-");
+        LocalDate date = LocalDate.of(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
+        this.client.dateCreatedProperty().set(date);
+        checkingAccount = getCheckingAccount(pAddress);
+        savingsAccount = getSavingsAccount(pAddress);
+        this.client.checkingAccountProperty().set(checkingAccount);
+        this.client.savingsAccountProperty().set(savingsAccount);
+    }
+
+    public void updateClient(){
+        CheckingAccount checkingAccount;
+        SavingsAccount savingsAccount;
+        String payee = Model.getInstance().getClient().payeeAddressProperty().get();
+
+        try {
+            ResultSet resultSet = databaseDriver.updateClientDetails(payee);
+            if(resultSet.next()){
+                getClientData(payee, resultSet);
             }
         }
         catch (Exception e){
@@ -182,6 +205,7 @@ public class Model {
     }
 
     public void setClients(){
+        this.clients = FXCollections.observableArrayList();
         CheckingAccount checkingAccount;
         SavingsAccount savingsAccount;
 
@@ -203,6 +227,8 @@ public class Model {
             e.printStackTrace();
         }
     }
+
+    //Search Client
 
     public ObservableList<Client> searchClient(String pAddress){
         ObservableList<Client> searchResults = FXCollections.observableArrayList();

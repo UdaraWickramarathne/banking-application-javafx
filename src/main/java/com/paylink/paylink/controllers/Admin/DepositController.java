@@ -55,6 +55,10 @@ public class DepositController implements Initializable {
     }
 
     private void onClientSearch(){
+        if(pAddress_fld.getText().isEmpty()){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR,"Field Empty", "Please fill the Payee Address Field");
+            return;
+        }
         emptyFields();
         textFieldDisable();
         result_list.setVisible(false);
@@ -66,6 +70,8 @@ public class DepositController implements Initializable {
             client = null;
             info_lbl.setStyle("-fx-text-fill: red");
             info_lbl.setText("No client found with the provided payee address.");
+            amount_fld.setVisible(false);
+            deposit_btn.setVisible(false);
         }
         else {
             amount_fld.setVisible(true);
@@ -88,6 +94,7 @@ public class DepositController implements Initializable {
     }
 
     private void onDeposit(){
+
         if (!amount_fld.getText().isEmpty() && !payee_add_fld.getText().isEmpty()){
             double amount = Double.parseDouble(amount_fld.getText());
             double newBalance = amount + client.savingsAccountProperty().get().balanceProperty().get();
@@ -97,6 +104,11 @@ public class DepositController implements Initializable {
             emptyFields();
             info_lbl.setStyle("-fx-text-fill: green");
             info_lbl.setText("Deposit Successfully");
+            changeFields();
+            pAddress_fld.setText("");
+        }
+        else {
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Field Empty!", "You must fill the Deposit Amount Field!");
         }
 
     }
@@ -136,12 +148,22 @@ public class DepositController implements Initializable {
             emptyFields();
             info_lbl.setStyle("-fx-text-fill: green");
             info_lbl.setText("Client Details Updated!");
-            textFieldDisable();
-            update_btn.setVisible(false);
-            edit_btn.setVisible(false);
+            changeFields();
         }
         else {
             CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Invalid Information!", "Please ensure all necessary fields are filled out before submitting your update.");
         }
     }
+
+    private void changeFields() {
+        textFieldDisable();
+        update_btn.setVisible(false);
+        edit_btn.setVisible(false);
+        result_list.setVisible(false);
+        edit_btn.setVisible(false);
+        update_btn.setVisible(false);
+        amount_fld.setVisible(false);
+        deposit_btn.setVisible(false);
+    }
+
 }

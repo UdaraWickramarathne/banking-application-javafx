@@ -29,6 +29,7 @@ public class DashboardController implements Initializable {
     public TextField amount_fld;
     public TextArea message_fld;
     public Button send_money_btn;
+    public Button refresh_btn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,6 +38,8 @@ public class DashboardController implements Initializable {
         setTransaction_listview();
         send_money_btn.setOnAction(event -> onSendMoney());
         accountSummery();
+
+        refresh_btn.setOnAction(event -> refresh());
     }
 
     private void setTransaction_listview(){
@@ -44,6 +47,11 @@ public class DashboardController implements Initializable {
         initLatestTransactionsList();
         transaction_listview.setItems(Model.getInstance().getLatestTransactions());
         transaction_listview.setCellFactory(e -> new TransactionCellFactory());
+    }
+
+    private void refresh(){
+        bindData();
+        setTransaction_listview();
     }
 
     private void bindData(){
@@ -98,7 +106,7 @@ public class DashboardController implements Initializable {
                         //I removed because my Email free plan limit is reached
 
                         //Send email for Sender
-                        NotificationUtil.sendMail(sender,receiver,amount,Model.getInstance().getClient().emailAddressProperty().get(),"Sender");
+                        //NotificationUtil.sendMail(sender,receiver,amount,Model.getInstance().getClient().emailAddressProperty().get(),"Sender");
 
                         CustomAlertBox.showAlert(Alert.AlertType.INFORMATION, "Payment Successfully!", "Thank you for using our service. Your transaction has been successfully completed.");
                         setTransaction_listview();

@@ -46,6 +46,21 @@ public class DatabaseDriver {
         return  null;
     }
 
+    public ResultSet updateClientDetails(String pAddress){
+        ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            String query = "SELECT * FROM Clients WHERE PayeeAddress = ?";
+            preparedStatement = this.conn.prepareStatement(query);
+            preparedStatement.setString(1,pAddress);
+            resultSet = preparedStatement.executeQuery();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
     public ResultSet getTransaction(String pAddress, int limit){
         Statement statement;
         ResultSet resultSet = null;
