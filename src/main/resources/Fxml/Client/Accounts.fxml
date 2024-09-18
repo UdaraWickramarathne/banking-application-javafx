@@ -33,14 +33,14 @@
    </VBox>
    <Text layoutX="527.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds To Savings Account" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="116.36000061035156" />
    <TextField fx:id="amount_to_sv" layoutX="527.0" layoutY="161.0" prefHeight="25.0" prefWidth="269.0" promptText="Amount" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="161.0" />
-   <Button fx:id="trans_to_sv_btn" layoutX="527.0" layoutY="212.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="269.0" text="Button" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="212.0">
+   <Button fx:id="trans_to_sv_btn" layoutX="527.0" layoutY="212.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="269.0" text="Transfer" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="212.0">
       <graphic>
          <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20" />
       </graphic>
    </Button>
    <Text layoutX="525.0" layoutY="507.63999938964844" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds To Checking Account" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="490.0" />
    <TextField fx:id="amount_to_ch" layoutX="527.0" layoutY="535.0" prefHeight="25.0" prefWidth="282.0" promptText="Amount" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="535.0" />
-   <Button fx:id="trans_to_ch_btn" layoutX="527.0" layoutY="586.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="269.0" text="Button" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="586.0">
+   <Button fx:id="trans_to_ch_btn" layoutX="527.0" layoutY="586.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="269.0" text="Transfer" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="586.0">
       <graphic>
          <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="20" />
       </graphic>

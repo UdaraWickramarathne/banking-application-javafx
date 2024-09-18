@@ -1,7 +1,6 @@
 package com.paylink.paylink.models;
 
 import com.google.zxing.WriterException;
-import com.paylink.paylink.controllers.Client.TransactionController;
 import com.paylink.paylink.utils.ImageConverter;
 import com.paylink.paylink.utils.QRCodeGenerator;
 import com.paylink.paylink.views.ViewFactory;
@@ -326,7 +325,7 @@ public class Model {
             String encodedAddress = URLEncoder.encode(encryptedAddress, StandardCharsets.UTF_8.toString());
             String encodedAmount = URLEncoder.encode(encryptedAmount, StandardCharsets.UTF_8.toString());
 
-            url = "http://16.171.159.175/index.php?pAddress=" + encodedAddress + "&amount=" + encodedAmount;
+            url = "http://16.171.22.193/index.php?pAddress=" + encodedAddress + "&amount=" + encodedAmount;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -382,4 +381,5 @@ public class Model {
     public String getVerificationCode() {
         return verificationCode;
     }
+
 }

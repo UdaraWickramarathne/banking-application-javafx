@@ -28,8 +28,8 @@
             <Image url="@../../Images/visa-card-saving.png" />
          </ImageView>
          <Label layoutX="19.0" layoutY="22.0" styleClass="account-type" text="Saving Account" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="22.0" />
-         <Label layoutX="22.0" layoutY="150.0" prefHeight="18.0" prefWidth="89.0" styleClass="card-stars" text="**** **** ****" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="150.0" />
-         <Label fx:id="saving_acc_num" layoutX="110.0" layoutY="145.0" styleClass="card-number" text="3456" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="145.0" />
+         <Label layoutX="22.0" layoutY="150.0" prefHeight="18.0" prefWidth="89.0" styleClass="card-stars" text="**** ****" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="150.0" />
+         <Label fx:id="saving_acc_num" layoutX="85.0" layoutY="145.0" styleClass="card-number" text="3456" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="145.0" />
          <Label fx:id="saving_bal" layoutX="21.0" layoutY="108.0" styleClass="card-amount" text="\$18746.18" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="108.0" />
          <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="216.0" layoutY="38.0" size="20" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
       </AnchorPane>
@@ -38,8 +38,8 @@
             <Image url="@../../Images/visa-card-saving.png" />
          </ImageView>
          <Label layoutX="45.0" layoutY="28.0" styleClass="account-type" text="Checking Account" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="22.0" />
-         <Label layoutX="27.0" layoutY="152.0" prefHeight="6.0" prefWidth="89.0" styleClass="card-stars" text="**** **** ****" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="150.0" />
-         <Label fx:id="checking_acc_num" layoutX="101.0" layoutY="142.0" styleClass="card-number" text="3456" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="145.0" />
+         <Label layoutX="27.0" layoutY="152.0" prefHeight="6.0" prefWidth="89.0" styleClass="card-stars" text="**** ****" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="150.0" />
+         <Label fx:id="checking_acc_num" layoutX="84.0" layoutY="145.0" styleClass="card-number" text="3456" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="145.0" />
          <Label fx:id="checking_bal" layoutX="27.0" layoutY="125.0" styleClass="card-amount" text="\$18746.18" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="108.0" />
          <FontAwesomeIconView fill="WHITE" glyphName="BANK" layoutX="226.0" layoutY="48.0" size="20" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
       </AnchorPane>
@@ -94,7 +94,7 @@
             </effect>
          </TextArea>
       </VBox>
-      <Button fx:id="send_money_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="241.0" text="Send Money" />
+      <Button fx:id="send_money_btn" mnemonicParsing="false" prefHeight="25.0" prefWidth="241.0" text="Transfer Money" />
    </VBox>
    <Button fx:id="refresh_btn" layoutX="704.0" layoutY="18.0" mnemonicParsing="false" styleClass="refresh" text="Refresh" />
 </AnchorPane>

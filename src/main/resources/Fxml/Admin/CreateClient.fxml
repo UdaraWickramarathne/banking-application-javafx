@@ -36,11 +36,17 @@
       <HBox prefHeight="100.0" prefWidth="200.0" styleClass="account-container">
          <VBox prefHeight="100.0" prefWidth="234.0" styleClass="add-account-container">
             <CheckBox fx:id="ch_acc_box" mnemonicParsing="false" text="Add Checking Account" />
-            <TextField fx:id="ch_amount_fld" prefHeight="33.0" prefWidth="201.0" promptText="Balance" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <Label fx:id="lbl_usd_c" prefHeight="20.0" prefWidth="47.0" text="USD" />
+               <TextField fx:id="ch_amount_fld" prefHeight="33.0" prefWidth="195.0" promptText="Balance" />
+            </HBox>
          </VBox>
          <VBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="231.0" styleClass="add-account-container">
             <CheckBox fx:id="sv_acc_box" mnemonicParsing="false" text="Add Saving Account" />
-            <TextField fx:id="sv_amount_fld" promptText="Balance" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <Label fx:id="lbl_usd_s" prefHeight="20.0" prefWidth="57.0" text="USD" />
+               <TextField fx:id="sv_amount_fld" promptText="Balance" />
+            </HBox>
          </VBox>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="488.0">

@@ -23,6 +23,21 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        password_fld.textProperty().addListener((observable,oldText,newText) ->{
+            if (password_fld.getText().isEmpty()){
+                password_fld.getStyleClass().remove("password-field-style");
+                password_fld.getStyleClass().add("placeholder-style");
+                System.out.println("place");
+            }
+            else {
+                password_fld.getStyleClass().remove("placeholder-style");
+                password_fld.getStyleClass().add("password-field-style");
+                System.out.println("pass");
+            }
+        });
+
+
+
         choice_box.setItems(FXCollections.observableArrayList(AccountType.CLIENT, AccountType.ADMIN));
         choice_box.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
         choice_box.valueProperty().addListener(observable -> setChoice_box());

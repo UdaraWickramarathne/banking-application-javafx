@@ -1,5 +1,7 @@
 package com.paylink.paylink.models;
 
+import com.paylink.paylink.data.Constants;
+
 import java.sql.*;
 import java.time.LocalDate;
 
@@ -8,13 +10,12 @@ public class DatabaseDriver {
 
     public DatabaseDriver(){
         try{
-            this.conn = DriverManager.getConnection("jdbc:mysql://udara-mssql-udniko25-1cfd.e.aivencloud.com:14502/paylink_db","avnadmin","AVNS_Q5mHKsjZjlm1NeRLbdj");
+            this.conn = DriverManager.getConnection(Constants.getURL(),Constants.getUSER(),Constants.getPASSWORD());
         }
         catch (SQLException e){
             e.printStackTrace();
         }
     }
-
     /*
     Client Section
      */

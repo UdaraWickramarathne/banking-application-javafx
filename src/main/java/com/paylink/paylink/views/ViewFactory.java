@@ -19,7 +19,7 @@ public class ViewFactory {
     private AccountType loginAccountType;
 
     //Client views
-    private ObjectProperty<ClientMenuOption> clientSelectedMenuItem;
+    private ObjectProperty<ClientMenuOption>     clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionView;
     private AnchorPane accountsView;
@@ -101,7 +101,6 @@ public class ViewFactory {
         ClientController clientController = new ClientController();
         loader.setController(clientController);
         createStage(loader);
-
     }
 
 

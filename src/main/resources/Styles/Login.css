@@ -66,7 +66,7 @@ Text {
     -fx-background-color: #2d2d2d;
 }
 
-.input-field {
+.input-field-text {
     -fx-background-color: transparent;
     -fx-font-family: 'Poppins';
     -fx-pref-height: 35;
@@ -76,6 +76,15 @@ Text {
     -fx-text-fill: #FFFFFF;
 }
 
+.input-field-password {
+    -fx-background-color: transparent;
+    -fx-font-family: 'Poppins';
+    -fx-pref-height: 35;
+    -fx-border-color: transparent transparent white transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.2em;
+}
 
 .login-form-container CheckBox {
     -fx-font-family: 'Poppins';
@@ -83,8 +92,8 @@ Text {
 }
 
 .login-form-container CheckBox .box {
-    -fx-background-color: #007BFF;
-    -fx-border-color: #007BFF;
+    -fx-background-color: #121212;
+    -fx-border-color: #ffffff;
     -fx-border-width: 2px;
     -fx-padding: 1.5;
     -fx-background-insets: 0;
@@ -93,7 +102,7 @@ Text {
 }
 
 .login-form-container CheckBox:selected .box .mark {
-    -fx-background-color: #000000;
+    -fx-background-color: #007BFF;
 }
 
 .login-form-container CheckBox .box:hover {

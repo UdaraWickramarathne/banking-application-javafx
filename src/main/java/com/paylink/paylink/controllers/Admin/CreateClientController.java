@@ -9,6 +9,9 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class CreateClientController implements Initializable {
     public TextField fName_fld;
@@ -25,16 +28,27 @@ public class CreateClientController implements Initializable {
     public Label error_lbl;
     public TextField password_txt_fld;
     public TextField email_fld;
+    public Label lbl_usd_c;
+    public Label lbl_usd_s;
 
     private String payeeAddress;
     private boolean createCheckingAccountFlag;
     private boolean createSavingsAccountFlag;
+    private static final String EMAIL_PATTERN =
+            "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+    private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        TextFormatter<String> textFormatter1 = new TextFormatter<>(filter);
+        TextFormatter<String> textFormatter2 = new TextFormatter<>(filter);
+        sv_amount_fld.setTextFormatter(textFormatter1);
+        ch_amount_fld.setTextFormatter(textFormatter2);
         //Default hide the account types
         sv_amount_fld.setVisible(false);
         ch_amount_fld.setVisible(false);
+        lbl_usd_s.setVisible(false);
+        lbl_usd_c.setVisible(false);
         pAddress_lbl.setText("");
 
         password_txt_fld.setVisible(false);
@@ -74,10 +88,12 @@ public class CreateClientController implements Initializable {
     //Show hide Accounts create types
     private void onSavingAccountChkChange(){
         sv_amount_fld.setVisible(sv_acc_box.isSelected());
+        lbl_usd_s.setVisible(sv_acc_box.isSelected());
     }
 
     private void onCheckingAccountChkChange(){
         ch_amount_fld.setVisible(ch_acc_box.isSelected());
+        lbl_usd_c.setVisible(ch_acc_box.isSelected());
     }
 
     private void onPasswordCheckChanged(){
@@ -107,6 +123,11 @@ public class CreateClientController implements Initializable {
 
         if(fName.isEmpty() || lName.isEmpty() || password.isEmpty() || email.isEmpty()){
             CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Please fill all the fields before you continue.");
+            return;
+        }
+
+        if(!isValidEmail(email)){
+            CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","\""+email + "\" is not a valid email address.");
             return;
         }
 
@@ -199,6 +220,11 @@ public class CreateClientController implements Initializable {
         return "";
     }
 
+    public boolean isValidEmail(String email) {
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
 
     private void emptyFields(){
         fName_fld.setText("");
@@ -213,5 +239,14 @@ public class CreateClientController implements Initializable {
         sv_acc_box.setSelected(false);
         email_fld.setText("");
     }
+
+    UnaryOperator<TextFormatter.Change> filter = change -> {
+        String newText = change.getControlNewText();
+        if (newText.matches("\\d*")) { // Allow only digits
+            return change;
+        }
+        CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Invalid", "You can only enter numbers!");
+        return null; // Reject the change
+    };
 
 }

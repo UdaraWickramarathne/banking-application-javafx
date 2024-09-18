@@ -14,6 +14,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 
 public class DashboardController implements Initializable {
     public Text username;
@@ -33,6 +34,8 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        TextFormatter<String> textFormatter1 = new TextFormatter<>(filter);
+        amount_fld.setTextFormatter(textFormatter1);
         bindData();
         initLatestTransactionsList();
         setTransaction_listview();
@@ -144,11 +147,19 @@ public class DashboardController implements Initializable {
             else {
                 income = income + transaction.amountProperty().get();
             }
-
         }
         income_lbl.setText("+ $" + income);
         expense_lbl.setText("- $" + expenses);
     }
+
+    UnaryOperator<TextFormatter.Change> filter = change -> {
+        String newText = change.getControlNewText();
+        if (newText.matches("\\d*")) { // Allow only digits
+            return change;
+        }
+        CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Invalid", "You can only enter numbers!");
+        return null; // Reject the change
+    };
 }
 
 

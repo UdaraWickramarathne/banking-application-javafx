@@ -13,7 +13,7 @@
    <Label fx:id="description_lbl" layoutX="80.0" layoutY="550.0" styleClass="description" text="If you have trouble with QR code you can copy the link by click Copy Link button" />
    <Button fx:id="cp_link_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="370.0" layoutY="620.0" mnemonicParsing="false" prefWidth="99.0" text="Copy Link" />
    <Label fx:id="result_lbl" alignment="CENTER" layoutX="391.0" layoutY="670.0" styleClass="link-copied-lbl" text="Link Copied" />
-   <Text layoutX="147.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Amount:" />
+   <Text layoutX="141.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Amount($):" />
    <TextField fx:id="amount_txt" layoutX="268.0" layoutY="99.0" prefHeight="25.0" prefWidth="218.0" promptText="Enter amount to Generate QR" />
    <Button fx:id="generate_btn" layoutX="535.0" layoutY="99.0" mnemonicParsing="false" prefWidth="132.0" text="Generate QR Code" />
    <Button fx:id="reset_btn" layoutX="678.0" layoutY="99.0" mnemonicParsing="false" prefWidth="132.0" styleClass="reset-btn" text="Reset" />

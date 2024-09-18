@@ -3,10 +3,7 @@ package com.paylink.paylink.controllers.Client;
 import com.paylink.paylink.models.Model;
 import com.paylink.paylink.utils.CustomAlertBox;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
@@ -14,6 +11,7 @@ import javafx.scene.input.ClipboardContent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 
 public class RequestMoneyController implements Initializable {
     public ImageView qrImage;
@@ -28,6 +26,8 @@ public class RequestMoneyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TextFormatter<String> textFormatter1 = new TextFormatter<>(filter);
+        amount_txt.setTextFormatter(textFormatter1);
         qrCodeImage = new Image(getClass().getResourceAsStream("/Images/qr-code.gif"));
         qrImage.setImage(qrCodeImage);
         hideFields();
@@ -58,7 +58,6 @@ public class RequestMoneyController implements Initializable {
         }
         catch (NumberFormatException e){
             CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Error","Please provide valid amount!");
-            return;
         }
         catch (Exception e){
             e.printStackTrace();
@@ -84,4 +83,12 @@ public class RequestMoneyController implements Initializable {
         clipboard.setContent(content);
         result_lbl.setVisible(true);
     }
+    UnaryOperator<TextFormatter.Change> filter = change -> {
+        String newText = change.getControlNewText();
+        if (newText.matches("\\d*")) { // Allow only digits
+            return change;
+        }
+        CustomAlertBox.showAlert(Alert.AlertType.ERROR, "Invalid", "You can only enter numbers!");
+        return null; // Reject the change
+    };
 }

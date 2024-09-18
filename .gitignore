@@ -12,3 +12,4 @@ target/
 *.iml
 *.ipr
 src/main/java/com/paylink/paylink/utils/NotificationUtil.java
+src/main/java/com/paylink/paylink/data/Constants.java
